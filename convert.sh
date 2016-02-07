@@ -1,10 +1,10 @@
 #!/bin/bash -e
-# File: convert2mp3.sh
+# File: convert.sh
 # Date: February 8th, 2016
 # Time: 01:06:23 +0800
 # Author: kn007 <kn007@126.com>
 # Blog: https://kn007.net
-# Usage: sh convert2mp3.sh silk_v3_file output_format
+# Usage: sh convert.sh silk_v3_file output_format
 # Requirement: gcc ffmpeg
 
 cur_dir=$(cd `dirname $0`; pwd)
