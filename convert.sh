@@ -13,7 +13,7 @@ if [ ! -r "$cur_dir/silk/decoder" ] ; then
 	echo 'Silk v3 Decoder is not found, compile it.'
 	cd $cur_dir/silk
 	make && make decoder
-	echo '========= Compile Finish ========='
+	echo '========= Silk v3 Decoder Compile Finish ========='
 fi
 
 cd $cur_dir
