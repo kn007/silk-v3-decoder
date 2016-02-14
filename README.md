@@ -1,5 +1,7 @@
-## Description <a href="https://github.com/kn007/silk-v3-decoder/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-green.svg?style=flat"></a>
+## Description
 Decode silk v3 audio files (like wechat amr files, qq slk files)
+
+<a href="https://github.com/kn007/silk-v3-decoder/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-green.svg?style=flat"></a>
 
 ## Requirement
 
