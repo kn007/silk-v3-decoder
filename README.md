@@ -3,6 +3,18 @@ Decode silk v3 audio files (like wechat amr files, qq slk files)
 
 <a href="https://github.com/kn007/silk-v3-decoder/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-green.svg?style=flat"></a>
 
+```
+silk-v3-decoder     (Decode Silk V3 Audio Files)
+  |
+  |---  silk        (Skype Silk Codec)
+  |
+  |---  LICENSE     (License)
+  |
+  |---  README.md   (Readme)
+  |
+  |---  convert.sh  (Converter Shell Script)
+```
+
 ## Requirement
 
 * gcc
