@@ -1,5 +1,6 @@
 ## Description
-Decode silk v3 audio files (like wechat amr files, qq slk files)
+Decode silk v3 audio files (like wechat amr files, qq slk files).
+Batch conversion support.
 
 <a href="https://github.com/kn007/silk-v3-decoder/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-green.svg?style=flat"></a>
 
@@ -12,7 +13,7 @@ silk-v3-decoder     (Decode Silk V3 Audio Files)
   |
   |---  README.md   (Readme)
   |
-  |---  convert.sh  (Converter Shell Script)
+  |---  converter.sh  (Converter Shell Script)
 ```
 
 ## Requirement
@@ -23,12 +24,18 @@ silk-v3-decoder     (Decode Silk V3 Audio Files)
 ## How To Use
 
 ```
-sh convert.sh silk_v3_file output_format
+sh converter.sh silk_v3_file/input_folder output_format/output_folder flag
 ```
 e.g.
 ```
-sh convert.sh 33921FF3774A773BB193B6FD4AD7C33E.slk mp3
+sh converter.sh 33921FF3774A773BB193B6FD4AD7C33E.slk mp3
 ```
+
+If you need to convert all audio files in one folder, now batch conversion support, using like this:
+```
+sh converter.sh input ouput mp3
+```
+Notice: the `input` folder is content the audio files you need to convert, the `output` folder is content the audio files after conversion finished.
 
 ## About
 
