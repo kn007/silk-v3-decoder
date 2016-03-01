@@ -26,12 +26,12 @@ silk-v3-decoder       (Decode Silk V3 Audio Files)
 ```
 sh converter.sh silk_v3_file/input_folder output_format/output_folder flag(format)
 ```
-e.g.
+E.g., convert a file:
 ```
 sh converter.sh 33921FF3774A773BB193B6FD4AD7C33E.slk mp3
 ```
 Notice: the `33921FF3774A773BB193B6FD4AD7C33E.slk` is an audio file you need to convert, the `mp3` is a format you need to output.
-
+***
 If you need to convert all audio files in one folder, now batch conversion support, using like this:
 ```
 sh converter.sh input ouput mp3
