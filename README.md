@@ -41,3 +41,48 @@ Notice: the `input` folder is content the audio files you need to convert, the `
 ## About
 
 [kn007's blog](http://kn007.net) 
+
+
+## 中文说明
+解码silk v3音频文件（类似微信的amr文件、QQ的slk文件）。
+支持批量转换。
+
+<a href="https://github.com/kn007/silk-v3-decoder/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-green.svg?style=flat"></a>
+
+```
+silk-v3-decoder       (解码silk v3音频文件)
+  |
+  |---  silk          (Skype Silk源码)
+  |
+  |---  LICENSE       (软件使用范围许可)
+  |
+  |---  README.md     (说明)
+  |
+  |---  converter.sh  (转换脚本)
+```
+
+## 依赖组件
+
+* gcc
+* ffmpeg
+
+## 如何使用
+
+```
+sh converter.sh silk_v3_file/input_folder output_format/output_folder flag(format)
+```
+比如转换一个文件，使用：
+```
+sh converter.sh 33921FF3774A773BB193B6FD4AD7C33E.slk mp3
+```
+注意：其中`33921FF3774A773BB193B6FD4AD7C33E.slk`是要转换的文件，而`mp3`是最终转换后输出的格式。
+***
+如果你需要批量转换，比如转换某个目录，那么使用：
+```
+sh converter.sh input ouput mp3
+```
+注意：其中`input`是要转换的目录，而`output`是最终转换后音频输出的目录，最后的`mp3`参数是最终转换后输出的格式。
+
+## 关于作者
+
+[kn007的个人博客](http://kn007.net) 
