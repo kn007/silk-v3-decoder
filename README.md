@@ -9,6 +9,8 @@ silk-v3-decoder       (Decode Silk V3 Audio Files)
   |
   |---  silk          (Skype Silk Codec)
   |
+  |---  windows       (For Windows Platform Users Program)
+  |
   |---  LICENSE       (License)
   |
   |---  README.md     (Readme)
@@ -38,6 +40,8 @@ sh converter.sh input ouput mp3
 ```
 Notice: the `input` folder is content the audio files you need to convert, the `output` folder is content the audio files after conversion finished, the `mp3` is a format you need to output.
 
+If you need to convert files on the `Windows` platfrom, <a href='/windows/README.md' target="_blank">click here</a> to get more information.
+
 ## About
 
 [kn007's blog](http://kn007.net) 
@@ -54,6 +58,8 @@ Notice: the `input` folder is content the audio files you need to convert, the `
 silk-v3-decoder       (解码silk v3音频文件)
   |
   |---  silk          (Skype Silk源码)
+  |
+  |---  windows       (可用于Windows平台的应用程序)
   |
   |---  LICENSE       (软件使用范围许可)
   |
@@ -83,6 +89,8 @@ sh converter.sh 33921FF3774A773BB193B6FD4AD7C33E.slk mp3
 sh converter.sh input ouput mp3
 ```
 注意：其中`input`是要转换的目录，而`output`是最终转换后音频输出的目录，最后的`mp3`参数是最终转换后输出的格式。
+
+如果你需要在`Windows`下使用该程序，请<a href='/windows/README.md' target="_blank">点击这里</a>，查看Windows使用相关说明。
 
 ## 关于作者
 
