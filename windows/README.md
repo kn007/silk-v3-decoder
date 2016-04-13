@@ -75,7 +75,7 @@ The test was passed when used following system:
 
 ## 环境测试
 
-与以下环境测试通过：
+于以下环境测试通过：
 * Windows XP
 * Windows 7
 * Windows 10
