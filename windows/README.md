@@ -25,6 +25,10 @@ Download the `lame.exe`, `silk2mp3.exe`, `silk_v3_decoder.exe` in one folder. Th
 
 `CRC32: 006BA4A1`
 
+## Notice
+
+The program compiled with `Autoit3`.
+
 ## Test
 
 The test was passed when used following system:
@@ -64,6 +68,10 @@ The test was passed when used following system:
 `SHA1: 280084B42A2651D60374DE61C2EEBA4D163127D8`
 
 `CRC32: 006BA4A1`
+
+## 其他提示
+
+该程序由`Autoit3`编译而成，个别小牌杀软可能会误报。
 
 ## 环境测试
 
