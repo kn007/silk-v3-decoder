@@ -12,6 +12,8 @@ Batch conversion support.
 
 Download the `lame.exe`, `silk2mp3.exe`, `silk_v3_decoder.exe` in one folder. Then run the `silk2mp3.exe`.
 
+[Or click here to download](http://dl.kn007.net/directlink/silk2mp3-1.0.0.1.zip "silk2mp3-1.0.0.1.zip")
+
 ## Screenshots
 
 ![screenshot](/windows/screenshots/20160413171427.png?raw=true "Screenshot")
@@ -55,6 +57,8 @@ The test was passed when used following system:
 ## 如何使用
 
 下载列表中3个应用程序，直接运行`silk2mp3.exe`即可。
+
+[或者点击这里下载](http://dl.kn007.net/directlink/silk2mp3-1.0.0.1.zip "silk2mp3-1.0.0.1.zip")
 
 ## 程序截图
 
