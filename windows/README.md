@@ -14,8 +14,8 @@ Download the `lame.exe`, `silk2mp3.exe`, `silk_v3_decoder.exe` in one folder. Th
 
 ## Screenshots
 
-![screenshot](/windows/screenshots/20160413145612.png?raw=true "Screenshot")
-![screenshot](/windows/screenshots/20160413145643.png?raw=true "Screenshot")
+![screenshot](/windows/screenshots/20160413171427.png?raw=true "Screenshot")
+![screenshot](/windows/screenshots/20160413171521.png?raw=true "Screenshot")
 
 ## Hash
 
