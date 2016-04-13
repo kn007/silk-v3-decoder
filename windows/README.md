@@ -12,6 +12,11 @@ Batch conversion support.
 
 Download the `lame.exe`, `silk2mp3.exe`, `silk_v3_decoder.exe` in one folder. Then run the `silk2mp3.exe`.
 
+## Screenshots
+
+![screenshot](/windows/screenshots/20160413145612.png?raw=true "Screenshot")
+![screenshot](/windows/screenshots/20160413145643.png?raw=true "Screenshot")
+
 ## Hash
 
 `MD5: 1E9764A372331113D21A0F081D9D0223`
@@ -46,6 +51,11 @@ The test was passed when used following system:
 ## 如何使用
 
 下载列表中3个应用程序，直接运行`silk2mp3.exe`即可。
+
+## 程序截图
+
+![screenshot](/windows/screenshots/20160413145612.png?raw=true "Screenshot")
+![screenshot](/windows/screenshots/20160413145643.png?raw=true "Screenshot")
 
 ## 程序鉴定
 
