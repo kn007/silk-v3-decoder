@@ -40,7 +40,7 @@ sh converter.sh input ouput mp3
 ```
 Notice: the `input` folder is content the audio files you need to convert, the `output` folder is content the audio files after conversion finished, the `mp3` is a format you need to output.
 
-If you need to convert files on the `Windows` platfrom, <a href='/windows/README.md' target="_blank">click here</a> to get more information.
+If you need to convert files on the `Windows` platfrom, <a href='/windows' target="_blank">click here</a> to get more information.
 
 ## About
 
@@ -90,7 +90,7 @@ sh converter.sh input ouput mp3
 ```
 注意：其中`input`是要转换的目录，而`output`是最终转换后音频输出的目录，最后的`mp3`参数是最终转换后输出的格式。
 
-如果你需要在`Windows`下使用该程序，请<a href='/windows/README.md' target="_blank">点击这里</a>，查看Windows使用相关说明。
+如果你需要在`Windows`下使用该程序，请<a href='/windows' target="_blank">点击这里</a>，查看Windows使用相关说明。
 
 ## 关于作者
 
