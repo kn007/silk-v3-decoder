@@ -38,9 +38,13 @@ The test was passed when used following system:
 * Windows 7
 * Windows 10
 
+## Links
+
+[https://kn007.net/topics/batch-convert-silk-v3-audio-files-to-mp3-in-windows/](https://kn007.net/topics/batch-convert-silk-v3-audio-files-to-mp3-in-windows/)
+
 ## About
 
-[kn007's blog](http://kn007.net) 
+[kn007's blog](https://kn007.net) 
 
 ***
 
@@ -84,6 +88,10 @@ The test was passed when used following system:
 * Windows 7
 * Windows 10
 
+## 相关链接
+
+[https://kn007.net/topics/batch-convert-silk-v3-audio-files-to-mp3-in-windows/](https://kn007.net/topics/batch-convert-silk-v3-audio-files-to-mp3-in-windows/)
+
 ## 关于作者
 
-[kn007的个人博客](http://kn007.net) 
+[kn007的个人博客](https://kn007.net) 
