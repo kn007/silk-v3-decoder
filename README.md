@@ -44,7 +44,7 @@ If you need to convert files on the `Windows` platfrom, [click here](http://dl.k
 
 ## About
 
-[kn007's blog](http://kn007.net) 
+[kn007's blog](https://kn007.net) 
 
 ***
 
@@ -94,4 +94,4 @@ sh converter.sh input ouput mp3
 
 ## 关于作者
 
-[kn007的个人博客](http://kn007.net) 
+[kn007的个人博客](https://kn007.net) 
