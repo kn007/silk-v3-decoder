@@ -1,7 +1,7 @@
 #!/bin/bash
 # File: converter.sh
-# Date: March 3th, 2016
-# Time: 23:52:41 +0800
+# Date: April 15th, 2016
+# Time: 15:33:52 +0800
 # Author: kn007 <kn007@126.com>
 # Blog: https://kn007.net
 # Usage: sh converter.sh silk_v3_file/input_folder output_format/output_folder flag(format)
@@ -40,7 +40,12 @@ while [ $3 ]; do
 	ls $1 | while read line; do
 		let CURRENT+=1
 		$cur_dir/silk/decoder "$1/$line" "$2/$line.pcm" > /dev/null 2>&1
-		[ ! -f "$2/$line.pcm" ]&&echo -e "[$CURRENT/$TOTAL]${YELLOW}[Warning]${RESET} Convert $line false, maybe not a silk v3 encoded file."&&continue
+		if [ ! -f "$2/$line.pcm" ]; then
+			ffmpeg -y -i "$1/$line" "$2/${line%.*}.$3" > /dev/null 2>&1 &
+			while pidof /usr/bin/ffmpeg; do sleep 1; done > /dev/null
+			[ -f "$2/${line%.*}.$3" ]&&echo -e "[$CURRENT/$TOTAL]${GREEN}[OK]${RESET} Convert $line to ${line%.*}.$3 success, ${YELLOW}but not a silk v3 encoded file.${RESET}"&&continue
+			echo -e "[$CURRENT/$TOTAL]${YELLOW}[Warning]${RESET} Convert $line false, maybe not a silk v3 encoded file."&&continue
+		fi
 		ffmpeg -y -f s16le -ar 24000 -ac 1 -i "$2/$line.pcm" "$2/${line%.*}.$3" > /dev/null 2>&1 &
 		while pidof /usr/bin/ffmpeg; do sleep 1; done > /dev/null
 		rm "$2/$line.pcm"
@@ -52,8 +57,14 @@ while [ $3 ]; do
 done
 
 $cur_dir/silk/decoder "$1" "$1.pcm" > /dev/null 2>&1
-[ ! -f "$1.pcm" ]&&echo -e "${YELLOW}[Warning]${RESET} Convert $1 false, maybe not a silk v3 encoded file."&&exit
+if [ ! -f "$1.pcm" ]; then
+	ffmpeg -y -i "$1" "${1%.*}.$2" > /dev/null 2>&1 &
+	while pidof /usr/bin/ffmpeg; do sleep 1; done > /dev/null
+	[ -f "${1%.*}.$2" ]&&echo -e "${GREEN}[OK]${RESET} Convert $1 to ${1%.*}.$2 success, ${YELLOW}but not a silk v3 encoded file.${RESET}"&&exit
+	echo -e "${YELLOW}[Warning]${RESET} Convert $1 false, maybe not a silk v3 encoded file."&&exit
+fi
 ffmpeg -y -f s16le -ar 24000 -ac 1 -i "$1.pcm" "${1%.*}.$2" > /dev/null 2>&1
+while pidof /usr/bin/ffmpeg; do sleep 1; done > /dev/null
 rm "$1.pcm"
 [ ! -f "${1%.*}.$2" ]&&echo -e "${YELLOW}[Warning]${RESET} Convert $1 false, maybe ffmpeg no format handler for $2."&&exit
 echo -e "${GREEN}[OK]${RESET} Convert $1 To ${1%.*}.$2 Finish."
