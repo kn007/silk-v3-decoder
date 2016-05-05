@@ -1,5 +1,5 @@
 ## Description
-Compiled Files From Skype Silk Codec For Windows Platfrom
+Compiled Files From Skype Silk Codec For Windows Platfrom.
 
 ## Hash
 
@@ -30,6 +30,10 @@ The test was passed when used following system:
 * Windows XP
 * Windows 7
 * Windows 10
+
+## Notice
+
+Also, you can compile it by yourself. Click [here](https://github.com/kn007/silk-v3-decoder/tree/master/silk) to get codes.
 
 ## About
 
@@ -69,6 +73,10 @@ The test was passed when used following system:
 * Windows XP
 * Windows 7
 * Windows 10
+
+## 注意事项
+
+你也可以点击[这里](https://github.com/kn007/silk-v3-decoder/tree/master/silk)获取源码自行编译。
 
 ## 关于作者
 
