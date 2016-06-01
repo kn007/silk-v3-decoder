@@ -10,14 +10,15 @@ Batch conversion support.
 
 ## How To Use
 
-Download the `lame.exe`, `silk2mp3.exe`, `silk_v3_decoder.exe` in one folder. Then run the `silk2mp3.exe`.
+Download the `lame.exe`, `silk2mp3.exe`, `silk_v3_decoder.exe`, `silk_v3_encoder.exe` in one folder. Then run the `silk2mp3.exe`.
 
 [Click here to download zip package for silk2mp3](https://dl.kn007.net/directlink/silk2mp3-1.0.0.3.zip "silk2mp3-1.0.0.3.zip")
 
 ## Screenshots
 
-![screenshot](/windows/screenshots/20160413171427.png?raw=true "Screenshot")
-![screenshot](/windows/screenshots/20160413171521.png?raw=true "Screenshot")
+![screenshot](/windows/screenshots/20160601170959.png?raw=true "Screenshot")
+
+[More screenshots](/windows/screenshots/)
 
 ## Hash
 
@@ -60,14 +61,15 @@ The test was passed when used following system:
 
 ## 如何使用
 
-下载列表中3个应用程序，直接运行`silk2mp3.exe`即可。
+下载 `lame.exe`、`silk2mp3.exe`、`silk_v3_decoder.exe`、`silk_v3_encoder.exe`后，直接运行`silk2mp3.exe`即可。
 
 [点击这里打包下载](https://dl.kn007.net/directlink/silk2mp3-1.0.0.3.zip "silk2mp3-1.0.0.3.zip")
 
 ## 程序截图
 
-![screenshot](/windows/screenshots/20160413145612.png?raw=true "Screenshot")
-![screenshot](/windows/screenshots/20160413145643.png?raw=true "Screenshot")
+![screenshot](/windows/screenshots/20160601170900.png?raw=true "Screenshot")
+
+[更多截图](/windows/screenshots/)
 
 ## 程序鉴定
 
