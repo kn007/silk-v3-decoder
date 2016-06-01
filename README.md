@@ -40,7 +40,7 @@ sh converter.sh input ouput mp3
 ```
 Notice: the `input` folder is content the audio files you need to convert, the `output` folder is content the audio files after conversion finished, the `mp3` is a format you need to output.
 
-If you need to convert files on the `Windows` platfrom, [click here](https://dl.kn007.net/directlink/silk2mp3-1.0.0.2.zip "silk2mp3-1.0.0.2.zip") to download zip package for `silk2mp3.exe` to convert, also can <a href='/windows' target="_blank">click here</a> to get more information.
+If you need to convert files on the `Windows` platfrom, [click here](https://dl.kn007.net/directlink/silk2mp3-1.0.0.3.zip "silk2mp3-1.0.0.3.zip") to download zip package for `silk2mp3.exe` to convert, also can <a href='/windows' target="_blank">click here</a> to get more information.
 
 ## About
 
@@ -90,7 +90,7 @@ sh converter.sh input ouput mp3
 ```
 注意：其中`input`是要转换的目录，而`output`是最终转换后音频输出的目录，最后的`mp3`参数是最终转换后输出的格式。
 
-如果你需要在`Windows`下使用该程序，请下载[silk2mp3.exe](https://dl.kn007.net/directlink/silk2mp3-1.0.0.2.zip "silk2mp3-1.0.0.2.zip")应用程序来完成转换，你可<a href='/windows' target="_blank">点击这里</a>，查看更多Windows下如何使用的相关说明。
+如果你需要在`Windows`下使用该程序，请下载[silk2mp3.exe](https://dl.kn007.net/directlink/silk2mp3-1.0.0.3.zip "silk2mp3-1.0.0.3.zip")应用程序来完成转换，你可<a href='/windows' target="_blank">点击这里</a>，查看更多Windows下如何使用的相关说明。
 
 ## 关于作者
 
