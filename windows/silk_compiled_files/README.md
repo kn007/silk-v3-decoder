@@ -12,10 +12,10 @@ Compiled Files From Skype Silk Codec For Windows Platfrom.
 
 <b>silk_v3_decoder_for_tencent.exe</b>
 * Size: 178349 bytes
-* Modified: 2016-06-01, 15:11:37, CST
-* MD5: D1605EC69ED018B7161166D3707B5F2A
-* SHA1: 0FB73989CC5AEDBF1E76E1803B72E244C0BCC91B
-* CRC32: 56994687
+* Modified: 2016-06-01, 16:03:26, CST
+* MD5: 751AF19CC8FC8693D04638EDA48D0E27
+* SHA1: 088758F7333B5975ED6124915C437A3449AD30FE
+* CRC32: DCAF927A
 
 <b>silk_v3_decoder_for_silk2mp3.exe</b>
 * Size: 179037 bytes
@@ -76,10 +76,10 @@ Also, you can compile it by yourself. Click [here](https://github.com/kn007/silk
 
 <b>silk_v3_decoder_for_tencent.exe</b>
 * 大小: 178349 字节
-* 修改时间: 2016年6月1日, 15:11:37
-* MD5: D1605EC69ED018B7161166D3707B5F2A
-* SHA1: 0FB73989CC5AEDBF1E76E1803B72E244C0BCC91B
-* CRC32: 56994687
+* 修改时间: 2016年6月1日, 16:03:26
+* MD5: 751AF19CC8FC8693D04638EDA48D0E27
+* SHA1: 088758F7333B5975ED6124915C437A3449AD30FE
+* CRC32: DCAF927A
 
 <b>silk_v3_decoder_for_silk2mp3.exe</b>
 * 大小: 179037 字节
