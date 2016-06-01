@@ -100,6 +100,8 @@ unsigned long GetHighResolutionTime() /* O: time in usec*/
 static SKP_int32 rand_seed = 1;
 
 static void print_usage(char* argv[]) {
+    printf( "\nBuild By kn007 (kn007.net)");
+    printf( "\nGithub: https://github.com/kn007/silk-v3-decoder\n");
     printf( "\nusage: %s in.bit out.pcm [settings]\n", argv[ 0 ] );
     printf( "\nin.bit       : Bitstream input to decoder" );
     printf( "\nout.pcm      : Speech output from decoder" );
@@ -182,13 +184,24 @@ int main( int argc, char* argv[] )
     /* Check Silk header */
     {
         char header_buf[ 50 ];
-		fread(header_buf, sizeof(char), 1, bitInFile);
-        counter = fread( header_buf, sizeof( char ), strlen( "#!SILK_V3" ), bitInFile );
-        header_buf[ strlen( "#!SILK_V3" ) ] = '\0'; /* Terminate with a null character */
-        if( strcmp( header_buf, "#!SILK_V3" ) != 0 ) {
-            /* Non-equal strings */
-            printf( "Error: Wrong Header %s\n", header_buf );
-            exit( 0 );
+        fread(header_buf, sizeof(char), 1, bitInFile);
+        header_buf[ strlen( "" ) ] = '\0'; /* Terminate with a null character */
+        if( strcmp( header_buf, "" ) != 0 ) {
+           counter = fread( header_buf, sizeof( char ), strlen( "!SILK_V3" ), bitInFile );
+           header_buf[ strlen( "!SILK_V3" ) ] = '\0'; /* Terminate with a null character */
+           if( strcmp( header_buf, "!SILK_V3" ) != 0 ) {
+               /* Non-equal strings */
+               printf( "Error: Wrong Header %s\n", header_buf );
+               exit( 0 );
+           }
+        } else {
+           counter = fread( header_buf, sizeof( char ), strlen( "#!SILK_V3" ), bitInFile );
+           header_buf[ strlen( "#!SILK_V3" ) ] = '\0'; /* Terminate with a null character */
+           if( strcmp( header_buf, "#!SILK_V3" ) != 0 ) {
+               /* Non-equal strings */
+               printf( "Error: Wrong Header %s\n", header_buf );
+               exit( 0 );
+           }
         }
     }
 
