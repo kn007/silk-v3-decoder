@@ -2,10 +2,12 @@
 Decode silk v3 audio files (like wechat amr files, qq slk files) and convert to mp3 format.
 The program for Windows users.
 Batch conversion support.
+Also support encode to silk v3.
 
 ## Requirement
 
 * silk_v3_decoder
+* silk_v3_encoder
 * lame
 
 ## How To Use
