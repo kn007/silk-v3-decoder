@@ -18,7 +18,7 @@ Also support encode to silk v3.
 
 Download the `lame.exe`, `silk2mp3.exe`, `silk_v3_decoder.exe`, `silk_v3_encoder.exe` in one folder. Then run the `silk2mp3.exe`.
 
-[Click here to download zip package for silk2mp3](https://dl.kn007.net/directlink/silk2mp3-1.0.0.3.zip "silk2mp3-1.0.0.3.zip")
+[Click here to download zip package for silk2mp3](https://dl.kn007.net/directlink/silk2mp3.zip "silk2mp3.zip")
 
 ## Screenshots
 
@@ -28,11 +28,11 @@ Download the `lame.exe`, `silk2mp3.exe`, `silk_v3_decoder.exe`, `silk_v3_encoder
 
 ## Hash
 
-`MD5: 427CEFB4DE2F852896D26729AA8D64C9`
+`MD5: C95DC4206A052BB97587E822930C8FF1`
 
-`SHA1: 465D4557A0C86BD6AB0066B59C08161B9C3B896C`
+`SHA1: 8866A69395FCFCD436F18F0C63C4D82B0C05F02D`
 
-`CRC32: 849BF0A8`
+`CRC32: 4F04A704`
 
 ## Notice
 
@@ -67,13 +67,14 @@ The test was passed when used following system:
 ## 依赖组件
 
 * silk_v3_decoder
+* silk_v3_encoder
 * lame
 
 ## 如何使用
 
 下载 `lame.exe`、`silk2mp3.exe`、`silk_v3_decoder.exe`、`silk_v3_encoder.exe`后，直接运行`silk2mp3.exe`即可。
 
-[点击这里打包下载](https://dl.kn007.net/directlink/silk2mp3-1.0.0.3.zip "silk2mp3-1.0.0.3.zip")
+[点击这里打包下载](https://dl.kn007.net/directlink/silk2mp3.zip "silk2mp3.zip")
 
 ## 程序截图
 
@@ -83,11 +84,11 @@ The test was passed when used following system:
 
 ## 程序鉴定
 
-`MD5: 427CEFB4DE2F852896D26729AA8D64C9`
+`MD5: C95DC4206A052BB97587E822930C8FF1`
 
-`SHA1: 465D4557A0C86BD6AB0066B59C08161B9C3B896C`
+`SHA1: 8866A69395FCFCD436F18F0C63C4D82B0C05F02D`
 
-`CRC32: 849BF0A8`
+`CRC32: 4F04A704`
 
 ## 其他提示
 
