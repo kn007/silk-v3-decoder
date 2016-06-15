@@ -1,5 +1,9 @@
 ## ChangeLog
 
+<b>Version 1.0.0.4</b> (15 Jun 2016)
+ * Add Chinese(Traditional) language support.
+ * Fix some bugs.
+
 <b>Version 1.0.0.3</b> (01 Jun 2016)
  * Add Silk v3 encode support.
  * Fix some bugs.
@@ -16,6 +20,10 @@
 
 
 ## 更新历史
+
+2016-06-15发布1.0.0.4版本：
+ * 添加语言支持，新增中文繁体支持。
+ * 修复一些Bug。
 
 2016-06-01发布1.0.0.3版本：
  * 支持转换音频文件为Silk v3编码。
