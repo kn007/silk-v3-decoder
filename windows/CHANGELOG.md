@@ -1,5 +1,9 @@
 ## ChangeLog
 
+<b>Version 1.0.0.5</b> (27 Jul 2016)
+ * Optimized code.
+ * Enable professional mode when FFmpeg has been found.
+
 <b>Version 1.0.0.4</b> (15 Jun 2016)
  * Add Chinese(Traditional) language support.
  * Fix some bugs.
@@ -21,8 +25,12 @@
 
 ## 更新历史
 
+2016-07-27发布1.0.0.5版本：
+ * 最小加载模式。
+ * 当发现程序目录下存在FFmpeg时，启用专业模式。
+
 2016-06-15发布1.0.0.4版本：
- * 添加语言支持，新增中文繁体支持。
+ * 添加语言支持，新增繁体中文支持。
  * 修复一些Bug。
 
 2016-06-01发布1.0.0.3版本：
