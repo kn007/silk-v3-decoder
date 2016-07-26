@@ -6,19 +6,25 @@ The program for Windows users.
 
 Batch conversion support.
 
-Also support encode to silk v3.
+Also support encode to silk v3 (Need `silk_v3_encoder`).
 
 ## Requirement
 
 * silk_v3_decoder
-* silk_v3_encoder
 * lame
+
+## Expansion
+
+* silk_v3_encoder (Encode to silk v3 support)
+* ffmpeg (Note: When using FFmpeg, do not need LAME any more)
 
 ## How To Use
 
-Download the `lame.exe`, `silk2mp3.exe`, `silk_v3_decoder.exe`, `silk_v3_encoder.exe` in one folder. Then run the `silk2mp3.exe`.
+Download the `lame.exe`, `silk2mp3.exe`, `silk_v3_decoder.exe` in one folder. Then run the `silk2mp3.exe`.
 
-[Click here to download zip package for silk2mp3](https://dl.kn007.net/directlink/silk2mp3.zip "silk2mp3.zip")
+[Click here to download zip package for silk2mp3](https://dl.kn007.net/directlink/silk2mp3.zip "silk2mp3.zip").
+
+If need more features, please download [expansion package](https://dl.kn007.net/directlink/silk2mp3-expansion.zip "silk2mp3-expansion.zip").
 
 ## Screenshots
 
@@ -28,11 +34,11 @@ Download the `lame.exe`, `silk2mp3.exe`, `silk_v3_decoder.exe`, `silk_v3_encoder
 
 ## Hash
 
-`MD5: C95DC4206A052BB97587E822930C8FF1`
+`MD5: F654D28098B7CF85FB73E2C87782CA8D`
 
-`SHA1: 8866A69395FCFCD436F18F0C63C4D82B0C05F02D`
+`SHA1: BD526FC9F1472504B79D4DABAFB1B4D8D456FD25`
 
-`CRC32: 4F04A704`
+`CRC32: C39F3389`
 
 ## Notice
 
@@ -62,19 +68,25 @@ The test was passed when used following system:
 
 支持批量转换。
 
-支持将文件编码为silk v3音频文件。
+支持将文件编码为silk v3音频文件（需要`silk_v3_encoder`）。
 
 ## 依赖组件
 
 * silk_v3_decoder
-* silk_v3_encoder
 * lame
+
+## 扩展组件
+
+* silk_v3_encoder （编码支持组件）
+* ffmpeg （注意：当使用FFmpeg时，LAME组件不再强制依赖）
 
 ## 如何使用
 
-下载 `lame.exe`、`silk2mp3.exe`、`silk_v3_decoder.exe`、`silk_v3_encoder.exe`后，直接运行`silk2mp3.exe`即可。
+下载 `lame.exe`、`silk2mp3.exe`、`silk_v3_decoder.exe`后，直接运行`silk2mp3.exe`即可。
 
 [点击这里打包下载](https://dl.kn007.net/directlink/silk2mp3.zip "silk2mp3.zip")
+
+需要扩展功能，请下载[扩展包](https://dl.kn007.net/directlink/silk2mp3-expansion.zip "silk2mp3-expansion.zip")。
 
 ## 程序截图
 
@@ -84,11 +96,11 @@ The test was passed when used following system:
 
 ## 程序鉴定
 
-`MD5: C95DC4206A052BB97587E822930C8FF1`
+`MD5: F654D28098B7CF85FB73E2C87782CA8D`
 
-`SHA1: 8866A69395FCFCD436F18F0C63C4D82B0C05F02D`
+`SHA1: BD526FC9F1472504B79D4DABAFB1B4D8D456FD25`
 
-`CRC32: 4F04A704`
+`CRC32: C39F3389`
 
 ## 其他提示
 
