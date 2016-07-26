@@ -26,6 +26,8 @@ Download the `lame.exe`, `silk2mp3.exe`, `silk_v3_decoder.exe` in one folder. Th
 
 If need more features, please download [expansion package](https://dl.kn007.net/directlink/silk2mp3-expansion.zip "silk2mp3-expansion.zip").
 
+Also you can download the [full version](https://dl.kn007.net/directlink/silk2mp3-full.zip "silk2mp3-full.zip") to get more features.
+
 ## Screenshots
 
 ![screenshot](/windows/screenshots/20160601170959.png?raw=true "Screenshot")
@@ -87,6 +89,8 @@ The test was passed when used following system:
 [点击这里打包下载](https://dl.kn007.net/directlink/silk2mp3.zip "silk2mp3.zip")
 
 需要扩展功能，请下载[扩展包](https://dl.kn007.net/directlink/silk2mp3-expansion.zip "silk2mp3-expansion.zip")。
+
+你也可以通过下载[完整版](https://dl.kn007.net/directlink/silk2mp3-full.zip "silk2mp3-full.zip")，来得到更多的功能。
 
 ## 程序截图
 
