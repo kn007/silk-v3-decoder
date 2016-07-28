@@ -51,6 +51,7 @@ The program compiled with `Autoit3`.
 The test was passed when used following system:
 * Windows XP
 * Windows 7
+* Windows 8
 * Windows 10
 
 ## Links
@@ -115,6 +116,7 @@ The test was passed when used following system:
 于以下环境测试通过：
 * Windows XP
 * Windows 7
+* Windows 8
 * Windows 10
 
 ## 相关链接
