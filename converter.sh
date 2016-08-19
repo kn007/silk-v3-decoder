@@ -44,13 +44,13 @@ while [ $3 ]; do
 		if [ ! -f "$2/$line.pcm" ]; then
 			ffmpeg -y -i "$1/$line" "$2/${line%.*}.$3" > /dev/null 2>&1 &
 			ffmpeg_pid=$!
-			while kill -0 "$ffmpeg_pid"; do sleep 1; done > /dev/null
+			while kill -0 "$ffmpeg_pid"; do sleep 1; done > /dev/null 2>&1
 			[ -f "$2/${line%.*}.$3" ]&&echo -e "[$CURRENT/$TOTAL]${GREEN}[OK]${RESET} Convert $line to ${line%.*}.$3 success, ${YELLOW}but not a silk v3 encoded file.${RESET}"&&continue
 			echo -e "[$CURRENT/$TOTAL]${YELLOW}[Warning]${RESET} Convert $line false, maybe not a silk v3 encoded file."&&continue
 		fi
 		ffmpeg -y -f s16le -ar 24000 -ac 1 -i "$2/$line.pcm" "$2/${line%.*}.$3" > /dev/null 2>&1 &
 		ffmpeg_pid=$!
-		while kill -0 "$ffmpeg_pid"; do sleep 1; done > /dev/null
+		while kill -0 "$ffmpeg_pid"; do sleep 1; done > /dev/null 2>&1
 		rm "$2/$line.pcm"
 		[ ! -f "$2/${line%.*}.$3" ]&&echo -e "[$CURRENT/$TOTAL]${YELLOW}[Warning]${RESET} Convert $line false, maybe ffmpeg no format handler for $3."&&continue
 		echo -e "[$CURRENT/$TOTAL]${GREEN}[OK]${RESET} Convert $line To ${line%.*}.$3 Finish."
@@ -63,13 +63,13 @@ $cur_dir/silk/decoder "$1" "$1.pcm" > /dev/null 2>&1
 if [ ! -f "$1.pcm" ]; then
 	ffmpeg -y -i "$1" "${1%.*}.$2" > /dev/null 2>&1 &
 	ffmpeg_pid=$!
-	while kill -0 "$ffmpeg_pid"; do sleep 1; done > /dev/null
+	while kill -0 "$ffmpeg_pid"; do sleep 1; done > /dev/null 2>&1
 	[ -f "${1%.*}.$2" ]&&echo -e "${GREEN}[OK]${RESET} Convert $1 to ${1%.*}.$2 success, ${YELLOW}but not a silk v3 encoded file.${RESET}"&&exit
 	echo -e "${YELLOW}[Warning]${RESET} Convert $1 false, maybe not a silk v3 encoded file."&&exit
 fi
 ffmpeg -y -f s16le -ar 24000 -ac 1 -i "$1.pcm" "${1%.*}.$2" > /dev/null 2>&1
 ffmpeg_pid=$!
-while kill -0 "$ffmpeg_pid"; do sleep 1; done > /dev/null
+while kill -0 "$ffmpeg_pid"; do sleep 1; done > /dev/null 2>&1
 rm "$1.pcm"
 [ ! -f "${1%.*}.$2" ]&&echo -e "${YELLOW}[Warning]${RESET} Convert $1 false, maybe ffmpeg no format handler for $2."&&exit
 echo -e "${GREEN}[OK]${RESET} Convert $1 To ${1%.*}.$2 Finish."
