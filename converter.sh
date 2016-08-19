@@ -68,7 +68,8 @@ if [ ! -f "$1.pcm" ]; then
 	echo -e "${YELLOW}[Warning]${RESET} Convert $1 false, maybe not a silk v3 encoded file."&&exit
 fi
 ffmpeg -y -f s16le -ar 24000 -ac 1 -i "$1.pcm" "${1%.*}.$2" > /dev/null 2>&1
-while pidof /usr/bin/ffmpeg; do sleep 1; done > /dev/null
+ffmpeg_pid=$!
+while kill -0 "$ffmpeg_pid"; do sleep 1; done > /dev/null
 rm "$1.pcm"
 [ ! -f "${1%.*}.$2" ]&&echo -e "${YELLOW}[Warning]${RESET} Convert $1 false, maybe ffmpeg no format handler for $2."&&exit
 echo -e "${GREEN}[OK]${RESET} Convert $1 To ${1%.*}.$2 Finish."
