@@ -274,6 +274,6 @@ void SKP_Silk_SDK_get_TOC(
 /* Return a pointer to string specifying the version */ 
 const char *SKP_Silk_SDK_get_version()
 {
-    static const char version[] = "1.0.9";
+    static const char version[] = "1.0.9.6";
     return version;
 }

@@ -100,7 +100,7 @@ unsigned long GetHighResolutionTime() /* O: time in usec*/
 static SKP_int32 rand_seed = 1;
 
 static void print_usage(char* argv[]) {
-    printf( "\nBuild By kn007 (kn007.net)");
+    printf( "\nVersion:20160922    Build By kn007 (kn007.net)");
     printf( "\nGithub: https://github.com/kn007/silk-v3-decoder\n");
     printf( "\nusage: %s in.bit out.pcm [settings]\n", argv[ 0 ] );
     printf( "\nin.bit       : Bitstream input to decoder" );

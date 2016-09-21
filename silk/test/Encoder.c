@@ -94,7 +94,7 @@ unsigned long GetHighResolutionTime() /* O: time in usec*/
 #endif // _WIN32
 
 static void print_usage( char* argv[] ) {
-    printf( "\nBuild By kn007 (kn007.net)");
+    printf( "\nVersion:20160922    Build By kn007 (kn007.net)");
     printf( "\nGithub: https://github.com/kn007/silk-v3-decoder\n");
     printf( "\nusage: %s in.pcm out.bit [settings]\n", argv[ 0 ] );
     printf( "\nin.pcm               : Speech input to encoder" );
@@ -232,16 +232,14 @@ int main( int argc, char* argv[] )
     }
 
     /* Add Silk header to stream */
-    if( !tencent ) {
-        {
-            static const char Silk_header[] = "#!SILK_V3";
-            fwrite( Silk_header, sizeof( char ), strlen( Silk_header ), bitOutFile );
+    {
+        if( tencent ) {
+	        static const char Tencent_break[] = "";
+            fwrite( Tencent_break, sizeof( char ), strlen( Tencent_break ), bitOutFile );
         }
-    } else {
-        {
-            static const char Silk_header[] = "#!SILK_V3";
-            fwrite( Silk_header, sizeof( char ), strlen( Silk_header ), bitOutFile );
-        }
+
+        static const char Silk_header[] = "#!SILK_V3";
+        fwrite( Silk_header, sizeof( char ), strlen( Silk_header ), bitOutFile );
     }
 
     /* Create Encoder */
@@ -350,13 +348,15 @@ int main( int argc, char* argv[] )
     nBytes = -1;
 
     /* Write payload size */
-    fwrite( &nBytes, sizeof( SKP_int16 ), 1, bitOutFile );
+    if( !tencent ) {
+        fwrite( &nBytes, sizeof( SKP_int16 ), 1, bitOutFile );
+    }
 
     /* Free Encoder */
     free( psEnc );
 
     fclose( speechInFile );
-    fclose( bitOutFile   );
+    fclose( bitOutFile );
 
     filetime  = totPackets * 1e-3 * packetSize_ms;
     avg_rate  = 8.0 / packetSize_ms * sumBytes       / totPackets;

@@ -1,5 +1,10 @@
 ## ChangeLog
 
+<b>Version 1.0.0.6</b> (22 Sept 2016)
+ * Fix Wechat play Silk v3 encode file(from silk2mp3) error.
+ * Add custom output format support.
+ * Fix some bugs.
+
 <b>Version 1.0.0.5</b> (27 Jul 2016)
  * Optimized code.
  * Enable professional mode when FFmpeg has been found.
@@ -24,6 +29,11 @@
 
 
 ## 更新历史
+
+2016-09-22发布1.0.0.6版本：
+ * 修复编码后，微信播放完，会有杂音。
+ * 新增输出格式自定义。
+ * 修复一些Bug。
 
 2016-07-27发布1.0.0.5版本：
  * 最小加载模式。
