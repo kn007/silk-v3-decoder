@@ -1,12 +1,14 @@
+# Silk2MP3
+
 ## Description
 
-Decode silk v3 audio files (like wechat amr files, qq slk files) and convert to mp3 format.
+Decode silk v3 audio files (like wechat amr files, qq slk files) and convert to other format.
 
 The program for Windows users.
 
 Batch conversion support.
 
-Also support encode to silk v3 (Need `silk_v3_encoder`).
+Also support encode to silk v3 (Need `silk_v3_encoder`), compatible with QQ/Wechat.
 
 ## Requirement
 
@@ -30,17 +32,17 @@ Also you can download the [full version](https://dl.kn007.net/directlink/silk2mp
 
 ## Screenshots
 
-![screenshot](/windows/screenshots/20160601170959.png?raw=true "Screenshot")
+![screenshot](/windows/screenshots/20160928221818.png?raw=true "Screenshot")
 
 [More screenshots](/windows/screenshots/)
 
 ## Hash
 
-`MD5: CD3A8AC8105F6D21DD00AD27ACE4253D`
+`MD5: D0804851FE2CB7B69D45AF8917F37DD2`
 
-`SHA1: 0FE5495D4B5CD814D5171FF50C8EA42056F4CB12`
+`SHA1: 056FBFA86CACDE23444B4D6546BCDE05C55E9EC4`
 
-`CRC32: 6C6BE309`
+`CRC32: 02A870AC`
 
 ## Notice
 
@@ -50,6 +52,7 @@ The program compiled with `Autoit3`.
 
 The test was passed when used following system:
 * Windows XP
+* Windows Vista
 * Windows 7
 * Windows 8
 * Windows 10
@@ -62,16 +65,24 @@ The test was passed when used following system:
 
 [kn007's blog](https://kn007.net) 
 
+## Donate
+
+PayPal: kn007#126.com (Change # to @)
+
+Alipay: kn007#126.com (Change # to @)
+
+[More(Like Wechat, Tenpay, etc.)](https://kn007.net/donate/) 
+
 ***
 
 ## 中文说明
-解码silk v3音频文件（类似微信的amr文件、QQ的slk文件）并转换为MP3格式。
+解码silk v3音频文件（类似微信的amr文件、QQ的slk文件）并转换为其他音频格式。
 
 在Windows平台可用的应用程序。
 
 支持批量转换。
 
-支持将文件编码为silk v3音频文件（需要`silk_v3_encoder`）。
+支持将文件编码为silk v3音频文件（需要`silk_v3_encoder`），兼容QQ、微信。
 
 ## 依赖组件
 
@@ -95,17 +106,17 @@ The test was passed when used following system:
 
 ## 程序截图
 
-![screenshot](/windows/screenshots/20160601170900.png?raw=true "Screenshot")
+![screenshot](/windows/screenshots/20160928221726.png?raw=true "Screenshot")
 
 [更多截图](/windows/screenshots/)
 
 ## 程序鉴定
 
-`MD5: CD3A8AC8105F6D21DD00AD27ACE4253D`
+`MD5: D0804851FE2CB7B69D45AF8917F37DD2`
 
-`SHA1: 0FE5495D4B5CD814D5171FF50C8EA42056F4CB12`
+`SHA1: 056FBFA86CACDE23444B4D6546BCDE05C55E9EC4`
 
-`CRC32: 6C6BE309`
+`CRC32: 02A870AC`
 
 ## 其他提示
 
@@ -115,6 +126,7 @@ The test was passed when used following system:
 
 于以下环境测试通过：
 * Windows XP
+* Windows Vista
 * Windows 7
 * Windows 8
 * Windows 10
@@ -126,3 +138,11 @@ The test was passed when used following system:
 ## 关于作者
 
 [kn007的个人博客](https://kn007.net) 
+
+## 赞助作者
+
+PayPal：kn007#126.com (请将 # 改为 @)
+
+支付宝：kn007#126.com (请将 # 改为 @)
+
+[其他方式(如微信支付、财付通等)](https://kn007.net/donate/) 

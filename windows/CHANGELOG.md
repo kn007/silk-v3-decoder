@@ -1,5 +1,10 @@
 ## ChangeLog
 
+<b>Version 1.0.1.0</b> (30 Sept 2016)
+ * Fix miss AMR header error.
+ * Add about page.
+ * Fix some bugs.
+ 
 <b>Version 1.0.0.6</b> (22 Sept 2016)
  * Fix Wechat play Silk v3 encode file(from silk2mp3) error.
  * Add custom output format support.
@@ -29,6 +34,11 @@
 
 
 ## 更新历史
+
+2016-09-30发布1.0.1.0版本：
+ * 修复缺失AMR头无法转换问题。
+ * 新增关于页。
+ * 修复一些Bug。
 
 2016-09-22发布1.0.0.6版本：
  * 修复编码后，微信播放完，会有杂音。
