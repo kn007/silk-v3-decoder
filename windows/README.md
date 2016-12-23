@@ -2,7 +2,7 @@
 
 ## Description
 
-Decode silk v3 audio files (like wechat amr files, qq slk files) and convert to other format.
+Decode silk v3 audio files (like wechat amr, aud files, qq slk files) and convert to other format.
 
 The program for Windows users.
 
@@ -76,7 +76,7 @@ Alipay: kn007#126.com (Change # to @)
 ***
 
 ## 中文说明
-解码silk v3音频文件（类似微信的amr文件、QQ的slk文件）并转换为其他音频格式。
+解码silk v3音频文件（类似微信的amr和aud文件、QQ的slk文件）并转换为其他音频格式。
 
 在Windows平台可用的应用程序。
 

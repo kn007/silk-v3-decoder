@@ -1,5 +1,5 @@
 ## Description
-Decode silk v3 audio files (like wechat amr files, qq slk files) and convert to other format (like mp3).
+Decode silk v3 audio files (like wechat amr, aud files, qq slk files) and convert to other format (like mp3).
 Batch conversion support.
 
 <a href="https://github.com/kn007/silk-v3-decoder/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-green.svg?style=flat"></a>
@@ -49,7 +49,7 @@ If you need to convert files on the `Windows` platfrom, [click here](https://dl.
 ***
 
 ## 中文说明
-解码silk v3音频文件（类似微信的amr文件、QQ的slk文件）并转换为其它格式（如MP3）。
+解码silk v3音频文件（类似微信的amr和aud文件、QQ的slk文件）并转换为其它格式（如MP3）。
 支持批量转换。
 
 <a href="https://github.com/kn007/silk-v3-decoder/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-green.svg?style=flat"></a>
