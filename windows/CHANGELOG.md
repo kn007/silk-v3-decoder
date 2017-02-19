@@ -1,5 +1,8 @@
 ## ChangeLog
 
+<b>Version 1.0.1.2</b> (19 Feb 2017)
+ * Force frequency, max CBR bitrate output(for mp3).
+
 <b>Version 1.0.1.1</b> (03 Nov 2016)
  * Add custom encode output format support.
  * Fix some bugs.
@@ -38,6 +41,9 @@
 
 
 ## 更新历史
+
+2017-02-19发布1.0.1.2版本：
+ * 强制输出固定频率和最大化比特率（主要针对MP3）。
 
 2016-11-03发布1.0.1.1版本：
  * 添加编码输出格式自定义。
