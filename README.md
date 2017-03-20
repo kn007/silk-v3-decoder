@@ -5,17 +5,19 @@ Batch conversion support.
 <a href="https://github.com/kn007/silk-v3-decoder/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-green.svg?style=flat"></a>
 
 ```
-silk-v3-decoder       (Decode Silk V3 Audio Files)
+silk-v3-decoder            (Decode Silk V3 Audio Files)
   |
-  |---  silk          (Skype Silk Codec)
+  |---  silk               (Skype Silk Codec)
   |
-  |---  windows       (For Windows Platform Users Program)
+  |---  windows            (For Windows Platform Users Program)
   |
-  |---  LICENSE       (License)
+  |---  LICENSE            (License)
   |
-  |---  README.md     (Readme)
+  |---  README.md          (Readme)
   |
-  |---  converter.sh  (Converter Shell Script)
+  |---  converter.sh       (Converter Shell Script)
+  |
+  |---  converter_beta.sh  (Converter Shell Script(Beta))
 ```
 
 ## Requirement
@@ -42,6 +44,10 @@ Notice: the `input` folder is content the audio files you need to convert, the `
 
 If you need to convert files on the `Windows` platfrom, [click here](https://dl.kn007.net/directlink/silk2mp3.zip "silk2mp3.zip") to download zip package for `silk2mp3.exe` to convert, also can <a href='/windows' target="_blank">click here</a> to get more information.
 
+## Other
+
+Also provide silk v3 encode codec, compatible with Wechat/QQ.
+
 ## About
 
 [kn007's blog](https://kn007.net) 
@@ -55,17 +61,19 @@ If you need to convert files on the `Windows` platfrom, [click here](https://dl.
 <a href="https://github.com/kn007/silk-v3-decoder/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-green.svg?style=flat"></a>
 
 ```
-silk-v3-decoder       (解码silk v3音频文件)
+silk-v3-decoder            (解码silk v3音频文件)
   |
-  |---  silk          (Skype Silk源码)
+  |---  silk               (Skype Silk源码)
   |
-  |---  windows       (可用于Windows平台的应用程序)
+  |---  windows            (可用于Windows平台的应用程序)
   |
-  |---  LICENSE       (软件使用范围许可)
+  |---  LICENSE            (软件使用范围许可)
   |
-  |---  README.md     (说明)
+  |---  README.md          (说明)
   |
-  |---  converter.sh  (转换脚本)
+  |---  converter.sh       (转换脚本)
+  |
+  |---  converter_beta.sh  (转换脚本(测试版))
 ```
 
 ## 依赖组件
@@ -91,6 +99,10 @@ sh converter.sh input ouput mp3
 注意：其中`input`是要转换的目录，而`output`是最终转换后音频输出的目录，最后的`mp3`参数是最终转换后输出的格式。
 
 如果你需要在`Windows`下使用该程序，请下载[silk2mp3.exe](https://dl.kn007.net/directlink/silk2mp3.zip "silk2mp3.zip")应用程序来完成转换，你可<a href='/windows' target="_blank">点击这里</a>来查看更多Windows下如何使用的相关说明。
+
+## 其他说明
+
+如果你需要对音频文件进行silk v3编码，源码也已经提供，并且对微信、QQ进行了兼容，详见参数。
 
 ## 关于作者
 
