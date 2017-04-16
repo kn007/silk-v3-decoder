@@ -11,11 +11,11 @@
 # Requirement: gcc ffmpeg
 
 # Colors
-RED="\e[31;1m"
-GREEN="\e[32;1m"
-YELLOW="\e[33;1m"
-WHITE="\e[37;1m"
-RESET="\e[0m"
+RED="$(tput setaf 1 2>/dev/null || echo '\e[0;31m')"
+GREEN="$(tput setaf 2 2>/dev/null || echo '\e[0;32m')"
+YELLOW="$(tput setaf 3 2>/dev/null || echo '\e[0;33m')"
+WHITE="$(tput setaf 7 2>/dev/null || echo '\e[0;37m')"
+RESET="$(tput sgr 0 2>/dev/null || echo '\e[0m')"
 
 # Main
 cur_dir=$(cd `dirname $0`; pwd)
@@ -31,7 +31,7 @@ fi
 cd $cur_dir
 
 while [ $3 ]; do
-	pidof /usr/bin/ffmpeg&&echo -e "${RED}[Error]${RESET} ffmpeg is occupied by another application, please check it."&&exit
+	[[ ! -z "$(pidof ffmpeg)" ]]&&echo -e "${RED}[Error]${RESET} ffmpeg is occupied by another application, please check it."&&exit
 	[ ! -d "$1" ]&&echo -e "${RED}[Error]${RESET} Input folder not found, please check it."&&exit
 	TOTAL=$(ls $1|wc -l)
 	[ ! -d "$2" ]&&mkdir "$2"&&echo -e "${WHITE}[Notice]${RESET} Output folder not found, create it."
