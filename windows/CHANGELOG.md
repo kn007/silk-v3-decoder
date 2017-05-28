@@ -1,5 +1,10 @@
 ## ChangeLog
 
+<b>Version 1.0.2.0</b> (28 May 2017)
+ * Add AMR header fix checkbox.
+ * Wechat mini program audio conversion support.
+ * Fix some bugs.
+
 <b>Version 1.0.1.2</b> (19 Feb 2017)
  * Force frequency, max CBR bitrate output(for mp3).
 
@@ -41,6 +46,11 @@
 
 
 ## 更新历史
+
+2017-05-28发布1.0.2.0版本：
+ * “尝试强制AMR编码解码文件”变为可选项。
+ * 支持微信小程序语音转换（包括编码、解码）。
+ * 修复一些Bug。
 
 2017-02-19发布1.0.1.2版本：
  * 强制输出固定频率和最大化比特率（主要针对MP3）。

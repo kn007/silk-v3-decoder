@@ -10,6 +10,8 @@ Batch conversion support.
 
 Also support encode to silk v3 (Need `silk_v3_encoder`), compatible with QQ/Wechat.
 
+Wechat mini program audio conversion support.
+
 ## Requirement
 
 * silk_v3_decoder
@@ -32,17 +34,17 @@ Also you can download the [full version](https://dl.kn007.net/directlink/silk2mp
 
 ## Screenshots
 
-![screenshot](/windows/screenshots/20160928221818.png?raw=true "Screenshot")
+![screenshot](/windows/screenshots/20170528161558.png?raw=true "Screenshot")
 
 [More screenshots](/windows/screenshots/)
 
 ## Hash
 
-`MD5: F73B3E0A156EBC8334DDD9C86482A2A3`
+`MD5: 3F9E5B3C36A0B346335CC6061AD032D3`
 
-`SHA1: 92A10F84CDC1740E9B2CF033EF622758C2393056`
+`SHA1: 3F67B5CB3678AE24388CE4A1CBA46338D56027D3`
 
-`CRC32: 971325AE`
+`CRC32: F8D4EA22`
 
 ## Notice
 
@@ -84,6 +86,8 @@ Alipay: kn007#126.com (Change # to @)
 
 支持将文件编码为silk v3音频文件（需要`silk_v3_encoder`），兼容QQ、微信。
 
+支持转换微信小程序语音文件，可编码或解码。
+
 ## 依赖组件
 
 * silk_v3_decoder
@@ -106,17 +110,17 @@ Alipay: kn007#126.com (Change # to @)
 
 ## 程序截图
 
-![screenshot](/windows/screenshots/20160928221726.png?raw=true "Screenshot")
+![screenshot](/windows/screenshots/20170528161523.png?raw=true "Screenshot")
 
 [更多截图](/windows/screenshots/)
 
 ## 程序鉴定
 
-`MD5: F73B3E0A156EBC8334DDD9C86482A2A3`
+`MD5: 3F9E5B3C36A0B346335CC6061AD032D3`
 
-`SHA1: 92A10F84CDC1740E9B2CF033EF622758C2393056`
+`SHA1: 3F67B5CB3678AE24388CE4A1CBA46338D56027D3`
 
-`CRC32: 971325AE`
+`CRC32: F8D4EA22`
 
 ## 其他提示
 
