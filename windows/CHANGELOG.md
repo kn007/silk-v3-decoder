@@ -1,5 +1,8 @@
 ## ChangeLog
 
+<b>Version 1.0.2.1</b> (28 Jun 2017)
+ * Add files to listview via drag and drop.
+
 <b>Version 1.0.2.0</b> (28 May 2017)
  * Add AMR header fix checkbox.
  * Wechat mini program audio conversion support.
@@ -46,6 +49,9 @@
 
 
 ## 更新历史
+
+2017-06-28发布1.0.2.1版本：
+ * 支持拖拽文件进列表框替换待转换文件列表。
 
 2017-05-28发布1.0.2.0版本：
  * “尝试强制AMR编码解码文件”变为可选项。
