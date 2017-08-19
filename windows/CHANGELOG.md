@@ -1,5 +1,8 @@
 ## ChangeLog
 
+<b>Version 1.0.2.2</b> (19 Aug 2017)
+ * Fix some bugs.
+
 <b>Version 1.0.2.1</b> (28 Jun 2017)
  * Add files to listview via drag and drop.
 
@@ -49,6 +52,9 @@
 
 
 ## 更新历史
+
+2017-08-19发布1.0.2.2版本：
+ * 修复一些Bug。
 
 2017-06-28发布1.0.2.1版本：
  * 支持拖拽文件进列表框替换待转换文件列表。
