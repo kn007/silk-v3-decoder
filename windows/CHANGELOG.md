@@ -1,5 +1,11 @@
 ## ChangeLog
 
+<b>Version 1.0.2.5</b> (01 Sept 2017)
+ * Optimized code.
+
+<b>Version 1.0.2.4</b> (22 Aug 2017)
+ * Fix some bugs.
+
 <b>Version 1.0.2.3</b> (22 Aug 2017)
  * Fix some bugs.
  * Remove drag and drop function.
@@ -56,6 +62,12 @@
 
 
 ## 更新历史
+
+2017-08-22发布1.0.2.5版本：
+ * 优化代码。
+
+2017-08-22发布1.0.2.4版本：
+ * 修复一些Bug。
 
 2017-08-22发布1.0.2.3版本：
  * 修复一些Bug。
