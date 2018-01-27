@@ -1,0 +1,5 @@
+
+silk/libSKP_SILK_SDK.a
+silk/decoder
+silk/encoder
+*.o
