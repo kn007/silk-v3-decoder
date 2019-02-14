@@ -1,5 +1,8 @@
 ## ChangeLog
 
+<b>Version 1.0.2.6</b> (14 Feb 2019)
+ * Repack application.
+
 <b>Version 1.0.2.5</b> (01 Sept 2017)
  * Optimized code.
 
@@ -62,6 +65,9 @@
 
 
 ## 更新历史
+
+2019-02-14发布1.0.2.6版本：
+ * 重新打包程序。
 
 2017-09-01发布1.0.2.5版本：
  * 优化代码。
