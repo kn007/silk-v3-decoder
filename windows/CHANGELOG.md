@@ -1,5 +1,8 @@
 ## ChangeLog
 
+<b>Version 1.0.2.9</b> (24 May 2019)
+ * Repack application by ASPack.
+
 <b>Version 1.0.2.8</b> (30 Mar 2019)
  * Repack application.
 
@@ -71,6 +74,9 @@
 
 
 ## 更新历史
+
+2019-05-24发布1.0.2.9版本：
+ * 使用ASPack重新打包程序。
 
 2019-03-30发布1.0.2.8版本：
  * 重新打包程序。
