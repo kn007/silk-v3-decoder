@@ -1,5 +1,8 @@
 ## ChangeLog
 
+<b>Version 1.0.3.1</b> (17 June 2019)
+ * Repack application by UPX.
+
 <b>Version 1.0.3.0</b> (17 June 2019)
  * Add code cert, repack application.
 
@@ -77,6 +80,9 @@
 
 
 ## 更新历史
+
+2019-06-17发布1.0.3.1版本：
+ * 使用UPX重新打包程序。
 
 2019-06-17发布1.0.3.0版本：
  * 添加代码证书重新打包程序。
