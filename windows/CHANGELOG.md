@@ -1,5 +1,8 @@
 ## ChangeLog
 
+<b>Version 1.0.3.2</b> (04 Jan 2020)
+ * Repack application by Obfuscator.
+
 <b>Version 1.0.3.1</b> (17 June 2019)
  * Repack application by UPX.
 
@@ -80,6 +83,9 @@
 
 
 ## 更新历史
+
+2020-01-04发布1.0.3.2版本：
+ * 混淆代码重新打包程序。
 
 2019-06-17发布1.0.3.1版本：
  * 使用UPX重新打包程序。
