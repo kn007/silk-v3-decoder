@@ -1,5 +1,8 @@
 ## ChangeLog
 
+<b>Version 1.0.3.3</b> (23 Jan 2020)
+ * Fix a bug form 1.0.3.2.
+
 <b>Version 1.0.3.2</b> (04 Jan 2020)
  * Repack application by Obfuscator.
 
@@ -83,6 +86,9 @@
 
 
 ## 更新历史
+
+2020-01-23发布1.0.3.3版本：
+ * 修复上一版本打包方式导致的win10系统以下不可用问题。
 
 2020-01-04发布1.0.3.2版本：
  * 混淆代码重新打包程序。
