@@ -361,6 +361,12 @@ int main( int argc, char* argv[] )
         for( i = 0; i < MAX_LBRR_DELAY; i++ ) {
             totBytes += nBytesPerPacket[ i + 1 ];
         }
+        /* Check if the received totBytes is valid */
+        if (totBytes < 0 || totBytes > sizeof(payload))
+        {
+            fprintf( stderr, "\rPackets decoded:             %d", totPackets );
+            return -1;
+        }
         SKP_memmove( payload, &payload[ nBytesPerPacket[ 0 ] ], totBytes * sizeof( SKP_uint8 ) );
         payloadEnd -= nBytesPerPacket[ 0 ];
         SKP_memmove( nBytesPerPacket, &nBytesPerPacket[ 1 ], MAX_LBRR_DELAY * sizeof( SKP_int16 ) );
@@ -453,6 +459,15 @@ int main( int argc, char* argv[] )
         for( i = 0; i < MAX_LBRR_DELAY; i++ ) {
             totBytes += nBytesPerPacket[ i + 1 ];
         }
+
+        /* Check if the received totBytes is valid */
+        if (totBytes < 0 || totBytes > sizeof(payload))
+        {
+            
+            fprintf( stderr, "\rPackets decoded:              %d", totPackets );
+            return -1;
+        }
+        
         SKP_memmove( payload, &payload[ nBytesPerPacket[ 0 ] ], totBytes * sizeof( SKP_uint8 ) );
         payloadEnd -= nBytesPerPacket[ 0 ];
         SKP_memmove( nBytesPerPacket, &nBytesPerPacket[ 1 ], MAX_LBRR_DELAY * sizeof( SKP_int16 ) );
