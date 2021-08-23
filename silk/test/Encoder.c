@@ -279,7 +279,6 @@ int main( int argc, char* argv[] )
     smplsSinceLastPacket = 0;
     sumBytes             = 0.0;
     sumActBytes          = 0.0;
-    smplsSinceLastPacket = 0;
     
     while( 1 ) {
         /* Read input from file */
