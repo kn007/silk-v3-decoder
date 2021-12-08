@@ -112,6 +112,8 @@ static void print_usage(char* argv[]) {
     printf( "\n" );
 }
 
+//#undef _WIN32
+
 int main( int argc, char* argv[] )
 {
     unsigned long tottime, starttime;
@@ -127,7 +129,12 @@ int main( int argc, char* argv[] )
     SKP_int16 nBytesPerPacket[ MAX_LBRR_DELAY + 1 ], totBytes;
     SKP_int16 out[ ( ( FRAME_LENGTH_MS * MAX_API_FS_KHZ ) << 1 ) * MAX_INPUT_FRAMES ], *outPtr;
     char      speechOutFileName[ 150 ], bitInFileName[ 150 ];
-    FILE      *bitInFile, *speechOutFile;
+#ifdef _WIN32
+    HANDLE bitInFile, speechOutFile;
+    DWORD dwCounter;
+#else
+    FILE  *bitInFile, *speechOutFile;
+#endif
     SKP_int32 packetSize_ms=0, API_Fs_Hz = 0;
     SKP_int32 decSizeBytes;
     void      *psDec;
@@ -175,7 +182,22 @@ int main( int argc, char* argv[] )
     }
 
     /* Open files */
-    bitInFile = fopen( bitInFileName, "rb" );
+#ifdef _WIN32
+    if(!SKP_STR_CASEINSENSITIVE_COMPARE(bitInFileName, "-")) {
+        bitInFile = GetStdHandle(STD_INPUT_HANDLE); 
+    } else {
+        bitInFile = CreateFileA(bitInFileName,
+                                   GENERIC_READ,
+                                   FILE_SHARE_READ,
+                                   NULL,
+                                   OPEN_EXISTING,
+                                   FILE_ATTRIBUTE_NORMAL,
+                                   NULL
+            );
+    }
+#else
+    bitInFile = SKP_STR_CASEINSENSITIVE_COMPARE(bitInFileName, "-") ? fopen( bitInFileName, "rb" ) : stdin;
+#endif
     if( bitInFile == NULL ) {
         printf( "Error: could not open input file %s\n", bitInFileName );
         exit( 0 );
@@ -184,10 +206,20 @@ int main( int argc, char* argv[] )
     /* Check Silk header */
     {
         char header_buf[ 50 ];
+#ifdef _WIN32
+        ReadFile(bitInFile, header_buf, sizeof(char), NULL, NULL);
+#else
         fread(header_buf, sizeof(char), 1, bitInFile);
+#endif
         header_buf[ strlen( "" ) ] = '\0'; /* Terminate with a null character */
         if( strcmp( header_buf, "" ) != 0 ) {
+#ifdef _WIN32
+           DWORD dwCounter;
+           ReadFile(bitInFile, header_buf, sizeof(char)*strlen( "!SILK_V3" ),&dwCounter,NULL);
+           counter = dwCounter / sizeof(char);
+#else
            counter = fread( header_buf, sizeof( char ), strlen( "!SILK_V3" ), bitInFile );
+#endif
            header_buf[ strlen( "!SILK_V3" ) ] = '\0'; /* Terminate with a null character */
            if( strcmp( header_buf, "!SILK_V3" ) != 0 ) {
                /* Non-equal strings */
@@ -195,7 +227,12 @@ int main( int argc, char* argv[] )
                exit( 0 );
            }
         } else {
+#ifdef _WIN32
+           ReadFile(bitInFile, header_buf, sizeof(char)*strlen( "#!SILK_V3" ),&dwCounter,NULL);
+           counter = dwCounter / sizeof(char);
+#else
            counter = fread( header_buf, sizeof( char ), strlen( "#!SILK_V3" ), bitInFile );
+#endif
            header_buf[ strlen( "#!SILK_V3" ) ] = '\0'; /* Terminate with a null character */
            if( strcmp( header_buf, "#!SILK_V3" ) != 0 ) {
                /* Non-equal strings */
@@ -205,7 +242,24 @@ int main( int argc, char* argv[] )
         }
     }
 
-    speechOutFile = fopen( speechOutFileName, "wb" );
+#ifdef _WIN32
+    if (!SKP_STR_CASEINSENSITIVE_COMPARE(speechOutFileName, "-"))
+    {
+        speechOutFile = GetStdHandle(STD_OUTPUT_HANDLE);
+    } else {
+        speechOutFile = CreateFileA(speechOutFileName,
+                                 GENERIC_WRITE,
+                                 FILE_SHARE_READ,
+                                 NULL,
+                                 CREATE_ALWAYS,
+                                 FILE_ATTRIBUTE_NORMAL,
+                                 NULL
+            );
+    }
+    
+#else
+    speechOutFile = SKP_STR_CASEINSENSITIVE_COMPARE(bitInFileName, "-") ? fopen( speechOutFileName, "wb" ) : stdout;
+#endif
     if( speechOutFile == NULL ) {
         printf( "Error: could not open output file %s\n", speechOutFileName );
         exit( 0 );
@@ -241,13 +295,24 @@ int main( int argc, char* argv[] )
     /* Simulate the jitter buffer holding MAX_FEC_DELAY packets */
     for( i = 0; i < MAX_LBRR_DELAY; i++ ) {
         /* Read payload size */
+#ifdef _WIN32
+        ReadFile(bitInFile, &nBytes, sizeof(SKP_int16), &dwCounter, NULL);
+        counter = dwCounter / sizeof(SKP_int16);
+#else
         counter = fread( &nBytes, sizeof( SKP_int16 ), 1, bitInFile );
+#endif
+        
 #ifdef _SYSTEM_IS_BIG_ENDIAN
         swap_endian( &nBytes, 1 );
 #endif
         /* Read payload */
+#ifdef _WIN32
+        ReadFile(bitInFile, payloadEnd, sizeof(SKP_uint8)*nBytes, &dwCounter, NULL);
+        counter = dwCounter / sizeof(SKP_uint8);
+#else
         counter = fread( payloadEnd, sizeof( SKP_uint8 ), nBytes, bitInFile );
-
+#endif
+        
         if( ( SKP_int16 )counter < nBytes ) {
             break;
         }
@@ -258,7 +323,13 @@ int main( int argc, char* argv[] )
 
     while( 1 ) {
         /* Read payload size */
+#ifdef _WIN32
+        ReadFile(bitInFile,&nBytes,sizeof(SKP_int16),&dwCounter,NULL);
+        counter = dwCounter / sizeof(SKP_int16);
+#else
         counter = fread( &nBytes, sizeof( SKP_int16 ), 1, bitInFile );
+#endif
+        
 #ifdef _SYSTEM_IS_BIG_ENDIAN
         swap_endian( &nBytes, 1 );
 #endif
@@ -267,7 +338,13 @@ int main( int argc, char* argv[] )
         }
 
         /* Read payload */
+#ifdef _WIN32
+        ReadFile(bitInFile,payloadEnd,sizeof(SKP_uint8)*nBytes,&dwCounter,NULL);
+        counter = dwCounter / sizeof(SKP_uint8);
+#else
         counter = fread( payloadEnd, sizeof( SKP_uint8 ), nBytes, bitInFile );
+#endif
+        
         if( ( SKP_int16 )counter < nBytes ) {
             break;
         }
@@ -354,7 +431,11 @@ int main( int argc, char* argv[] )
 #ifdef _SYSTEM_IS_BIG_ENDIAN
         swap_endian( out, tot_len );
 #endif
+#ifdef _WIN32
+        WriteFile(speechOutFile, out, sizeof(SKP_int16)*tot_len,NULL,NULL);
+#else
         fwrite( out, sizeof( SKP_int16 ), tot_len, speechOutFile );
+#endif
 
         /* Update buffer */
         totBytes = 0;
@@ -452,7 +533,11 @@ int main( int argc, char* argv[] )
 #ifdef _SYSTEM_IS_BIG_ENDIAN
         swap_endian( out, tot_len );
 #endif
+#ifdef _WIN32
+        WriteFile(speechOutFile, out, sizeof(SKP_int16)*tot_len,NULL,NULL);
+#else
         fwrite( out, sizeof( SKP_int16 ), tot_len, speechOutFile );
+#endif
 
         /* Update Buffer */
         totBytes = 0;
@@ -485,8 +570,13 @@ int main( int argc, char* argv[] )
     free( psDec );
 
     /* Close files */
+#ifdef _WIN32
+    CloseHandle(speechOutFile);
+    CloseHandle(bitInFile);
+#else
     fclose( speechOutFile );
     fclose( bitInFile );
+#endif
 
     filetime = totPackets * 1e-3 * packetSize_ms;
     if( !quiet ) {
