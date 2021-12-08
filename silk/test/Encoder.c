@@ -124,7 +124,12 @@ int main( int argc, char* argv[] )
     SKP_uint8 payload[ MAX_BYTES_PER_FRAME * MAX_INPUT_FRAMES ];
     SKP_int16 in[ FRAME_LENGTH_MS * MAX_API_FS_KHZ * MAX_INPUT_FRAMES ];
     char      speechInFileName[ 150 ], bitOutFileName[ 150 ];
+#ifdef _WIN32
+    HANDLE bitOutFile, speechInFile;
+    DWORD dwCounter;
+#else
     FILE      *bitOutFile, *speechInFile;
+#endif
     SKP_int32 encSizeBytes;
     void      *psEnc;
 #ifdef _SYSTEM_IS_BIG_ENDIAN
@@ -220,13 +225,51 @@ int main( int argc, char* argv[] )
     }
 
     /* Open files */
-    speechInFile = fopen( speechInFileName, "rb" );
+#ifdef _WIN32
+    if(!SKP_STR_CASEINSENSITIVE_COMPARE(speechInFileName, "-")) {
+        speechInFile = GetStdHandle(STD_INPUT_HANDLE); // 坑1: 此处必须用ReadFile，否则fread读取的全是0
+    } else {
+        speechInFile = CreateFileA(speechInFileName,
+                                   GENERIC_READ,
+                                   FILE_SHARE_READ,
+                                   NULL,
+                                   OPEN_EXISTING,
+                                   FILE_ATTRIBUTE_NORMAL,
+                                   NULL
+            );
+    }
+#else
+    speechInFile = SKP_STR_CASEINSENSITIVE_COMPARE(speechInFileName, "-") ? fopen( speechInFileName, "rb" ) : stdin;
+#endif
+#ifdef _WIN32
+    if ( speechInFile == INVALID_HANDLE_VALUE ) {
+#else
     if( speechInFile == NULL ) {
+#endif
         printf( "Error: could not open input file %s\n", speechInFileName );
         exit( 0 );
     }
-    bitOutFile = fopen( bitOutFileName, "wb" );
+#ifdef _WIN32
+    if(!SKP_STR_CASEINSENSITIVE_COMPARE(bitOutFileName, "-")) { 
+        bitOutFile = GetStdHandle(STD_OUTPUT_HANDLE); 
+    } else {
+        bitOutFile = CreateFileA(bitOutFileName,
+                                 GENERIC_WRITE,
+                                 FILE_SHARE_READ,
+                                 NULL,
+                                 CREATE_ALWAYS,
+                                 FILE_ATTRIBUTE_NORMAL,
+                                 NULL
+            );
+    }
+#else
+    bitOutFile = SKP_STR_CASEINSENSITIVE_COMPARE(bitOutFileName, "-") ? fopen( bitOutFileName, "wb" ) : stdout;
+#endif
+#ifdef _WIN32
+    if ( bitOutFile == INVALID_HANDLE_VALUE ) {
+#else
     if( bitOutFile == NULL ) {
+#endif
         printf( "Error: could not open output file %s\n", bitOutFileName );
         exit( 0 );
     }
@@ -235,11 +278,19 @@ int main( int argc, char* argv[] )
     {
         if( tencent ) {
 	        static const char Tencent_break[] = "";
+#ifdef _WIN32
+            WriteFile(bitOutFile, Tencent_break, sizeof(char)*strlen(Tencent_break), NULL, NULL);
+#else
             fwrite( Tencent_break, sizeof( char ), strlen( Tencent_break ), bitOutFile );
+#endif
         }
 
         static const char Silk_header[] = "#!SILK_V3";
+#ifdef _WIN32
+        WriteFile(bitOutFile, Silk_header, sizeof(char)*strlen(Silk_header), NULL, NULL);
+#else
         fwrite( Silk_header, sizeof( char ), strlen( Silk_header ), bitOutFile );
+#endif
     }
 
     /* Create Encoder */
@@ -283,7 +334,12 @@ int main( int argc, char* argv[] )
     
     while( 1 ) {
         /* Read input from file */
+#ifdef _WIN32
+        ReadFile(speechInFile, in, sizeof( SKP_int16 )*(( frameSizeReadFromFile_ms * API_fs_Hz ) / 1000), &dwCounter, NULL);
+        counter = dwCounter / sizeof( SKP_int16 ); // 坑2: 这里读取的是字节数
+#else
         counter = fread( in, sizeof( SKP_int16 ), ( frameSizeReadFromFile_ms * API_fs_Hz ) / 1000, speechInFile );
+#endif
 #ifdef _SYSTEM_IS_BIG_ENDIAN
         swap_endian( in, counter );
 #endif
@@ -297,7 +353,7 @@ int main( int argc, char* argv[] )
         starttime = GetHighResolutionTime();
 
         /* Silk Encoder */
-        ret = SKP_Silk_SDK_Encode( psEnc, &encControl, in, (SKP_int16)counter, payload, &nBytes );
+        ret = SKP_Silk_SDK_Encode( psEnc, &encControl, in, counter, payload, &nBytes );
         if( ret ) {
             printf( "\nSKP_Silk_Encode returned %d", ret );
         }
@@ -325,6 +381,15 @@ int main( int argc, char* argv[] )
             }
 
             /* Write payload size */
+#ifdef _WIN32
+#ifdef _SYSTEM_IS_BIG_ENDIAN
+            nBytes_LE = nBytes;
+            swap_endian( &nBytes_LE, 1 );
+            WriteFile(bitOutFile, &nBytes_LE, sizeof( SKP_int16 ), NULL, NULL);
+#else
+            WriteFile(bitOutFile, &nBytes, sizeof( SKP_int16 ), NULL, NULL);
+#endif
+#else
 #ifdef _SYSTEM_IS_BIG_ENDIAN
             nBytes_LE = nBytes;
             swap_endian( &nBytes_LE, 1 );
@@ -332,9 +397,14 @@ int main( int argc, char* argv[] )
 #else
             fwrite( &nBytes, sizeof( SKP_int16 ), 1, bitOutFile );
 #endif
+#endif
 
             /* Write payload */
+#ifdef _WIN32
+            WriteFile(bitOutFile, payload, sizeof( SKP_uint8 )*nBytes, NULL, NULL);
+#else
             fwrite( payload, sizeof( SKP_uint8 ), nBytes, bitOutFile );
+#endif
 
             smplsSinceLastPacket = 0;
         
@@ -349,14 +419,23 @@ int main( int argc, char* argv[] )
 
     /* Write payload size */
     if( !tencent ) {
+#ifdef _WIN32
+        WriteFile(bitOutFile, &nBytes, sizeof( SKP_int16 ), NULL, NULL);
+#else
         fwrite( &nBytes, sizeof( SKP_int16 ), 1, bitOutFile );
+#endif
     }
 
     /* Free Encoder */
     free( psEnc );
 
+#ifdef _WIN32
+    CloseHandle(speechInFile);
+    CloseHandle(bitOutFile);
+#else
     fclose( speechInFile );
     fclose( bitOutFile );
+#endif
 
     filetime  = totPackets * 1e-3 * packetSize_ms;
     avg_rate  = 8.0 / packetSize_ms * sumBytes       / totPackets;
