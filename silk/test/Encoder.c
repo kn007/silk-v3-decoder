@@ -94,23 +94,23 @@ unsigned long GetHighResolutionTime() /* O: time in usec*/
 #endif // _WIN32
 
 static void print_usage( char* argv[] ) {
-    printf( "\nVersion:20160922    Build By kn007 (kn007.net)");
-    printf( "\nGithub: https://github.com/kn007/silk-v3-decoder\n");
-    printf( "\nusage: %s in.pcm out.bit [settings]\n", argv[ 0 ] );
-    printf( "\nin.pcm               : Speech input to encoder" );
-    printf( "\nout.bit              : Bitstream output from encoder" );
-    printf( "\n   settings:" );
-    printf( "\n-Fs_API <Hz>         : API sampling rate in Hz, default: 24000" );
-    printf( "\n-Fs_maxInternal <Hz> : Maximum internal sampling rate in Hz, default: 24000" ); 
-    printf( "\n-packetlength <ms>   : Packet interval in ms, default: 20" );
-    printf( "\n-rate <bps>          : Target bitrate; default: 25000" );
-    printf( "\n-loss <perc>         : Uplink loss estimate, in percent (0-100); default: 0" );
-    printf( "\n-inbandFEC <flag>    : Enable inband FEC usage (0/1); default: 0" );
-    printf( "\n-complexity <comp>   : Set complexity, 0: low, 1: medium, 2: high; default: 2" );
-    printf( "\n-DTX <flag>          : Enable DTX (0/1); default: 0" );
-    printf( "\n-quiet               : Print only some basic values" );
-    printf( "\n-tencent             : Compatible with QQ/Wechat" );
-    printf( "\n");
+    fprintf(stderr, "\nVersion:20160922    Build By kn007 (kn007.net)");
+    fprintf(stderr, "\nGithub: https://github.com/kn007/silk-v3-decoder\n");
+    fprintf(stderr, "\nusage: %s in.pcm out.bit [settings]\n", argv[ 0 ] );
+    fprintf(stderr, "\nin.pcm               : Speech input to encoder" );
+    fprintf(stderr, "\nout.bit              : Bitstream output from encoder" );
+    fprintf(stderr, "\n   settings:" );
+    fprintf(stderr, "\n-Fs_API <Hz>         : API sampling rate in Hz, default: 24000" );
+    fprintf(stderr, "\n-Fs_maxInternal <Hz> : Maximum internal sampling rate in Hz, default: 24000" ); 
+    fprintf(stderr, "\n-packetlength <ms>   : Packet interval in ms, default: 20" );
+    fprintf(stderr, "\n-rate <bps>          : Target bitrate; default: 25000" );
+    fprintf(stderr, "\n-loss <perc>         : Uplink loss estimate, in percent (0-100); default: 0" );
+    fprintf(stderr, "\n-inbandFEC <flag>    : Enable inband FEC usage (0/1); default: 0" );
+    fprintf(stderr, "\n-complexity <comp>   : Set complexity, 0: low, 1: medium, 2: high; default: 2" );
+    fprintf(stderr, "\n-DTX <flag>          : Enable DTX (0/1); default: 0" );
+    fprintf(stderr, "\n-quiet               : Print only some basic values" );
+    fprintf(stderr, "\n-tencent             : Compatible with QQ/Wechat" );
+    fprintf(stderr, "\n");
 }
 
 int main( int argc, char* argv[] )
@@ -195,7 +195,7 @@ int main( int argc, char* argv[] )
             quiet = 1;
             args++;
         } else {
-            printf( "Error: unrecognized setting: %s\n\n", argv[ args ] );
+            fprintf(stderr, "Error: unrecognized setting: %s\n\n", argv[ args ] );
             print_usage( argv );
             exit( 0 );
         }
@@ -211,17 +211,17 @@ int main( int argc, char* argv[] )
 
     /* Print options */
     if( !quiet ) {
-        printf("********** Silk Encoder (Fixed Point) v %s ********************\n", SKP_Silk_SDK_get_version());
-        printf("********** Compiled for %d bit cpu ******************************* \n", (int)sizeof(void*) * 8 );
-        printf( "Input:                          %s\n",     speechInFileName );
-        printf( "Output:                         %s\n",     bitOutFileName );
-        printf( "API sampling rate:              %d Hz\n",  API_fs_Hz );
-        printf( "Maximum internal sampling rate: %d Hz\n",  max_internal_fs_Hz );
-        printf( "Packet interval:                %d ms\n",  packetSize_ms );
-        printf( "Inband FEC used:                %d\n",     INBandFEC_enabled );
-        printf( "DTX used:                       %d\n",     DTX_enabled );
-        printf( "Complexity:                     %d\n",     complexity_mode );
-        printf( "Target bitrate:                 %d bps\n", targetRate_bps );
+        fprintf(stderr,"********** Silk Encoder (Fixed Point) v %s ********************\n", SKP_Silk_SDK_get_version());
+        fprintf(stderr,"********** Compiled for %d bit cpu ******************************* \n", (int)sizeof(void*) * 8 );
+        fprintf(stderr, "Input:                          %s\n",     speechInFileName );
+        fprintf(stderr, "Output:                         %s\n",     bitOutFileName );
+        fprintf(stderr, "API sampling rate:              %d Hz\n",  API_fs_Hz );
+        fprintf(stderr, "Maximum internal sampling rate: %d Hz\n",  max_internal_fs_Hz );
+        fprintf(stderr, "Packet interval:                %d ms\n",  packetSize_ms );
+        fprintf(stderr, "Inband FEC used:                %d\n",     INBandFEC_enabled );
+        fprintf(stderr, "DTX used:                       %d\n",     DTX_enabled );
+        fprintf(stderr, "Complexity:                     %d\n",     complexity_mode );
+        fprintf(stderr, "Target bitrate:                 %d bps\n", targetRate_bps );
     }
 
     /* Open files */
@@ -246,7 +246,7 @@ int main( int argc, char* argv[] )
 #else
     if( speechInFile == NULL ) {
 #endif
-        printf( "Error: could not open input file %s\n", speechInFileName );
+        fprintf(stderr, "Error: could not open input file %s\n", speechInFileName );
         exit( 0 );
     }
 #ifdef _WIN32
@@ -270,7 +270,7 @@ int main( int argc, char* argv[] )
 #else
     if( bitOutFile == NULL ) {
 #endif
-        printf( "Error: could not open output file %s\n", bitOutFileName );
+        fprintf(stderr, "Error: could not open output file %s\n", bitOutFileName );
         exit( 0 );
     }
 
@@ -296,7 +296,7 @@ int main( int argc, char* argv[] )
     /* Create Encoder */
     ret = SKP_Silk_SDK_Get_Encoder_Size( &encSizeBytes );
     if( ret ) {
-        printf( "\nError: SKP_Silk_create_encoder returned %d\n", ret );
+        fprintf(stderr, "\nError: SKP_Silk_create_encoder returned %d\n", ret );
         exit( 0 );
     }
 
@@ -305,7 +305,7 @@ int main( int argc, char* argv[] )
     /* Reset Encoder */
     ret = SKP_Silk_SDK_InitEncoder( psEnc, &encStatus );
     if( ret ) {
-        printf( "\nError: SKP_Silk_reset_encoder returned %d\n", ret );
+        fprintf(stderr, "\nError: SKP_Silk_reset_encoder returned %d\n", ret );
         exit( 0 );
     }
 
@@ -320,7 +320,7 @@ int main( int argc, char* argv[] )
     encControl.bitRate               = ( targetRate_bps > 0 ? targetRate_bps : 0 );
 
     if( API_fs_Hz > MAX_API_FS_KHZ * 1000 || API_fs_Hz < 0 ) {
-        printf( "\nError: API sampling rate = %d out of range, valid range 8000 - 48000 \n \n", API_fs_Hz );
+        fprintf(stderr, "\nError: API sampling rate = %d out of range, valid range 8000 - 48000 \n \n", API_fs_Hz );
         exit( 0 );
     }
 
@@ -355,7 +355,7 @@ int main( int argc, char* argv[] )
         /* Silk Encoder */
         ret = SKP_Silk_SDK_Encode( psEnc, &encControl, in, counter, payload, &nBytes );
         if( ret ) {
-            printf( "\nSKP_Silk_Encode returned %d", ret );
+            fprintf(stderr, "\nSKP_Silk_Encode returned %d", ret );
         }
 
         tottime += GetHighResolutionTime() - starttime;
@@ -409,7 +409,7 @@ int main( int argc, char* argv[] )
             smplsSinceLastPacket = 0;
         
             if( !quiet ) {
-                fprintf( stderr, "\rPackets encoded:                %d", totPackets );
+                fprintf(stderr, "\rPackets encoded:                %d", totPackets );
             }
         }
     }
@@ -441,16 +441,16 @@ int main( int argc, char* argv[] )
     avg_rate  = 8.0 / packetSize_ms * sumBytes       / totPackets;
     act_rate  = 8.0 / packetSize_ms * sumActBytes    / totActPackets;
     if( !quiet ) {
-        printf( "\nFile length:                    %.3f s", filetime );
-        printf( "\nTime for encoding:              %.3f s (%.3f%% of realtime)", 1e-6 * tottime, 1e-4 * tottime / filetime );
-        printf( "\nAverage bitrate:                %.3f kbps", avg_rate  );
-        printf( "\nActive bitrate:                 %.3f kbps", act_rate  );
-        printf( "\n\n" );
+        fprintf(stderr, "\nFile length:                    %.3f s", filetime );
+        fprintf(stderr, "\nTime for encoding:              %.3f s (%.3f%% of realtime)", 1e-6 * tottime, 1e-4 * tottime / filetime );
+        fprintf(stderr, "\nAverage bitrate:                %.3f kbps", avg_rate  );
+        fprintf(stderr, "\nActive bitrate:                 %.3f kbps", act_rate  );
+        fprintf(stderr, "\n\n" );
     } else {
         /* print time and % of realtime */
-        printf("%.3f %.3f %d ", 1e-6 * tottime, 1e-4 * tottime / filetime, totPackets );
+        fprintf(stderr,"%.3f %.3f %d ", 1e-6 * tottime, 1e-4 * tottime / filetime, totPackets );
         /* print average and active bitrates */
-        printf( "%.3f %.3f \n", avg_rate, act_rate );
+        fprintf(stderr, "%.3f %.3f \n", avg_rate, act_rate );
     }
 
     return 0;
