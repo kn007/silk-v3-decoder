@@ -100,19 +100,17 @@ unsigned long GetHighResolutionTime() /* O: time in usec*/
 static SKP_int32 rand_seed = 1;
 
 static void print_usage(char* argv[]) {
-    printf( "\nVersion:20160922    Build By kn007 (kn007.net)");
-    printf( "\nGithub: https://github.com/kn007/silk-v3-decoder\n");
-    printf( "\nusage: %s in.bit out.pcm [settings]\n", argv[ 0 ] );
-    printf( "\nin.bit       : Bitstream input to decoder" );
-    printf( "\nout.pcm      : Speech output from decoder" );
-    printf( "\n   settings:" );
-    printf( "\n-Fs_API <Hz> : Sampling rate of output signal in Hz; default: 24000" );
-    printf( "\n-loss <perc> : Simulated packet loss percentage (0-100); default: 0" );
-    printf( "\n-quiet       : Print out just some basic values" );
-    printf( "\n" );
+    fprintf(stderr, "\nVersion:20160922    Build By kn007 (kn007.net)");
+    fprintf(stderr, "\nGithub: https://github.com/kn007/silk-v3-decoder\n");
+    fprintf(stderr, "\nusage: %s in.bit out.pcm [settings]\n", argv[ 0 ] );
+    fprintf(stderr, "\nin.bit       : Bitstream input to decoder" );
+    fprintf(stderr, "\nout.pcm      : Speech output from decoder" );
+    fprintf(stderr, "\n   settings:" );
+    fprintf(stderr, "\n-Fs_API <Hz> : Sampling rate of output signal in Hz; default: 24000" );
+    fprintf(stderr, "\n-loss <perc> : Simulated packet loss percentage (0-100); default: 0" );
+    fprintf(stderr, "\n-quiet       : Print out just some basic values" );
+    fprintf(stderr, "\n" );
 }
-
-//#undef _WIN32
 
 int main( int argc, char* argv[] )
 {
@@ -168,17 +166,17 @@ int main( int argc, char* argv[] )
             quiet = 1;
             args++;
         } else {
-            printf( "Error: unrecognized setting: %s\n\n", argv[ args ] );
+            fprintf(stderr, "Error: unrecognized setting: %s\n\n", argv[ args ] );
             print_usage( argv );
             exit( 0 );
         }
     }
 
     if( !quiet ) {
-        printf("********** Silk Decoder (Fixed Point) v %s ********************\n", SKP_Silk_SDK_get_version());
-        printf("********** Compiled for %d bit cpu *******************************\n", (int)sizeof(void*) * 8 );
-        printf( "Input:                       %s\n", bitInFileName );
-        printf( "Output:                      %s\n", speechOutFileName );
+        fprintf(stderr,"********** Silk Decoder (Fixed Point) v %s ********************\n", SKP_Silk_SDK_get_version());
+        fprintf(stderr,"********** Compiled for %d bit cpu *******************************\n", (int)sizeof(void*) * 8 );
+        fprintf(stderr, "Input:                       %s\n", bitInFileName );
+        fprintf(stderr, "Output:                      %s\n", speechOutFileName );
     }
 
     /* Open files */
@@ -199,7 +197,7 @@ int main( int argc, char* argv[] )
     bitInFile = SKP_STR_CASEINSENSITIVE_COMPARE(bitInFileName, "-") ? fopen( bitInFileName, "rb" ) : stdin;
 #endif
     if( bitInFile == NULL ) {
-        printf( "Error: could not open input file %s\n", bitInFileName );
+        fprintf(stderr, "Error: could not open input file %s\n", bitInFileName );
         exit( 0 );
     }
 
@@ -223,7 +221,7 @@ int main( int argc, char* argv[] )
            header_buf[ strlen( "!SILK_V3" ) ] = '\0'; /* Terminate with a null character */
            if( strcmp( header_buf, "!SILK_V3" ) != 0 ) {
                /* Non-equal strings */
-               printf( "Error: Wrong Header %s\n", header_buf );
+               fprintf(stderr, "Error: Wrong Header %s\n", header_buf );
                exit( 0 );
            }
         } else {
@@ -236,7 +234,7 @@ int main( int argc, char* argv[] )
            header_buf[ strlen( "#!SILK_V3" ) ] = '\0'; /* Terminate with a null character */
            if( strcmp( header_buf, "#!SILK_V3" ) != 0 ) {
                /* Non-equal strings */
-               printf( "Error: Wrong Header %s\n", header_buf );
+               fprintf(stderr, "Error: Wrong Header %s\n", header_buf );
                exit( 0 );
            }
         }
@@ -261,7 +259,7 @@ int main( int argc, char* argv[] )
     speechOutFile = SKP_STR_CASEINSENSITIVE_COMPARE(bitInFileName, "-") ? fopen( speechOutFileName, "wb" ) : stdout;
 #endif
     if( speechOutFile == NULL ) {
-        printf( "Error: could not open output file %s\n", speechOutFileName );
+        fprintf(stderr, "Error: could not open output file %s\n", speechOutFileName );
         exit( 0 );
     }
 
@@ -278,14 +276,14 @@ int main( int argc, char* argv[] )
     /* Create decoder */
     ret = SKP_Silk_SDK_Get_Decoder_Size( &decSizeBytes );
     if( ret ) {
-        printf( "\nSKP_Silk_SDK_Get_Decoder_Size returned %d", ret );
+        fprintf(stderr, "\nSKP_Silk_SDK_Get_Decoder_Size returned %d", ret );
     }
     psDec = malloc( decSizeBytes );
 
     /* Reset decoder */
     ret = SKP_Silk_SDK_InitDecoder( psDec );
     if( ret ) {
-        printf( "\nSKP_Silk_InitDecoder returned %d", ret );
+        fprintf(stderr, "\nSKP_Silk_InitDecoder returned %d", ret );
     }
 
     totPackets = 0;
@@ -396,7 +394,7 @@ int main( int argc, char* argv[] )
                 /* Decode 20 ms */
                 ret = SKP_Silk_SDK_Decode( psDec, &DecControl, 0, payloadToDec, nBytes, outPtr, &len );
                 if( ret ) {
-                    printf( "\nSKP_Silk_SDK_Decode returned %d", ret );
+                    fprintf(stderr, "\nSKP_Silk_SDK_Decode returned %d", ret );
                 }
 
                 frames++;
@@ -416,7 +414,7 @@ int main( int argc, char* argv[] )
                 /* Generate 20 ms */
                 ret = SKP_Silk_SDK_Decode( psDec, &DecControl, 1, payloadToDec, nBytes, outPtr, &len );
                 if( ret ) {
-                    printf( "\nSKP_Silk_Decode returned %d", ret );
+                    fprintf(stderr, "\nSKP_Silk_Decode returned %d", ret );
                 }
                 outPtr  += len;
                 tot_len += len;
@@ -497,7 +495,7 @@ int main( int argc, char* argv[] )
                 /* Decode 20 ms */
                 ret = SKP_Silk_SDK_Decode( psDec, &DecControl, 0, payloadToDec, nBytes, outPtr, &len );
                 if( ret ) {
-                    printf( "\nSKP_Silk_SDK_Decode returned %d", ret );
+                    fprintf(stderr, "\nSKP_Silk_SDK_Decode returned %d", ret );
                 }
 
                 frames++;
@@ -518,7 +516,7 @@ int main( int argc, char* argv[] )
             for( i = 0; i < DecControl.framesPerPacket; i++ ) {
                 ret = SKP_Silk_SDK_Decode( psDec, &DecControl, 1, payloadToDec, nBytes, outPtr, &len );
                 if( ret ) {
-                    printf( "\nSKP_Silk_Decode returned %d", ret );
+                    fprintf(stderr, "\nSKP_Silk_Decode returned %d", ret );
                 }
                 outPtr  += len;
                 tot_len += len;
@@ -563,7 +561,7 @@ int main( int argc, char* argv[] )
     }
 
     if( !quiet ) {
-        printf( "\nDecoding Finished \n" );
+        fprintf(stderr, "\nDecoding Finished \n" );
     }
 
     /* Free decoder */
@@ -580,12 +578,12 @@ int main( int argc, char* argv[] )
 
     filetime = totPackets * 1e-3 * packetSize_ms;
     if( !quiet ) {
-        printf("\nFile length:                 %.3f s", filetime);
-        printf("\nTime for decoding:           %.3f s (%.3f%% of realtime)", 1e-6 * tottime, 1e-4 * tottime / filetime);
-        printf("\n\n");
+        fprintf(stderr,"\nFile length:                 %.3f s", filetime);
+        fprintf(stderr,"\nTime for decoding:           %.3f s (%.3f%% of realtime)", 1e-6 * tottime, 1e-4 * tottime / filetime);
+        fprintf(stderr,"\n\n");
     } else {
         /* print time and % of realtime */
-        printf( "%.3f %.3f %d\n", 1e-6 * tottime, 1e-4 * tottime / filetime, totPackets );
+        fprintf(stderr, "%.3f %.3f %d\n", 1e-6 * tottime, 1e-4 * tottime / filetime, totPackets );
     }
     return 0;
 }
