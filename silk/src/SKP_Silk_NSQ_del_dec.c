@@ -475,7 +475,7 @@ SKP_INLINE void SKP_Silk_noise_shape_quantizer_del_dec(
             /* Flip sign depending on dither */
             r_Q10 = ( r_Q10 ^ dither ) - dither;
             r_Q10 = SKP_SUB32( r_Q10, offset_Q10 );
-            r_Q10 = SKP_LIMIT_32( r_Q10, -64 << 10, 64 << 10 );
+            r_Q10 = SKP_LIMIT_32( r_Q10, -(64 << 10), 64 << 10 );
 
             /* Find two quantization level candidates and measure their rate-distortion */
             if( r_Q10 < -1536 ) {

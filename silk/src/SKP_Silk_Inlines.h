@@ -252,7 +252,7 @@ SKP_INLINE SKP_int32 SKP_Silk_SIN_APPROX_Q24(        /* O    returns approximate
         }
         if( x < 1100 ) {
             /* Special case: high accuracy */
-            return SKP_SMLAWB( -1 << 24, SKP_MUL( x, x ), 5053 );
+            return SKP_SMLAWB( -(1 << 24), SKP_MUL( x, x ), 5053 );
         }
         x = SKP_SMULWB( SKP_LSHIFT( x, 8 ), x );        /* contains x^2 in Q20 */
         y_Q30 = SKP_SMLAWB( -SKP_SIN_APPROX_CONST2, x, -SKP_SIN_APPROX_CONST3 );
