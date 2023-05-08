@@ -143,7 +143,7 @@ void SKP_Silk_SDK_get_TOC(
 /* Get the version number */
 /**************************/
 /* Return a pointer to string specifying the version */ 
-const char *SKP_Silk_SDK_get_version();
+const char *SKP_Silk_SDK_get_version(void);
 
 #ifdef __cplusplus
 }

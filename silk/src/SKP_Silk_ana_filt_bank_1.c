@@ -39,7 +39,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 /* Coefficients for 2-band filter bank based on first-order allpass filters */
 // old
 static SKP_int16 A_fb1_20[ 1 ] = {  5394 << 1 };
-static SKP_int16 A_fb1_21[ 1 ] = { 20623 << 1 };        /* wrap-around to negative number is intentional */
+static SKP_int16 A_fb1_21[ 1 ] = {  (SKP_int16) (20623 << 1) };        /* wrap-around to negative number is intentional */
 
 /* Split signal into two decimated bands using first-order allpass filters */
 void SKP_Silk_ana_filt_bank_1(
