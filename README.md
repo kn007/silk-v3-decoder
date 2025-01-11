@@ -106,7 +106,7 @@ sh converter.sh input ouput mp3
 Build docker image,
 
 ```
-docker build -t silk-v3-decoder .
+docker build -t soulmachine/silk-v3-decoder .
 ```
 
 Convert a file:

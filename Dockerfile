@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM python:slim-bookworm
 
 # Install required packages
 RUN apt update && apt install -y \
@@ -15,5 +15,4 @@ COPY . /app/
 # Build the SILK decoder
 RUN cd ./silk && make && make decoder
 
-# Set the entrypoint to the decoder binary
-ENTRYPOINT ["/app/converter.sh"]
+ENTRYPOINT ["python","/app/converter.py"]
