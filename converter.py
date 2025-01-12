@@ -55,6 +55,8 @@ def convert_file(aud_file: str, mp3_file: str) -> bool:
 
         # Step 3: Remove the intermediate .pcm file
         os.remove(pcm_path)
+        # copy both creation and modification times from the .aud file to the .mp3 file
+        os.utime(mp3_file, (os.path.getatime(aud_file), os.path.getmtime(aud_file)))
         logging.info(f"Successfully converted {aud_file} to {mp3_file}")
         return True
 
