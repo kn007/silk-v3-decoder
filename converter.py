@@ -42,6 +42,7 @@ def convert_file(aud_file: str, mp3_file: str) -> bool:
             return False
 
         # Step 2: Convert .pcm to .mp3 using ffmpeg
+        os.makedirs(os.path.dirname(mp3_file), exist_ok=True)
         logging.info(f"Converting {pcm_path} to MP3...")
         ffmpeg_result = subprocess.run([
             'ffmpeg',
@@ -76,10 +77,7 @@ def process_task(task):
 
 def convert_aud_to_mp3(input_dir: str, output_dir: str):
     # Get all .aud files in the directory
-    aud_files = list(Path(input_dir).glob('*.aud'))  # Convert to list to get total count
-
-    # Create output directory if it doesn't exist
-    os.makedirs(output_dir, exist_ok=True)
+    aud_files = list(Path(input_dir).rglob('*.aud'))  # Convert to list to get total count
 
     total_count = len(aud_files)
     success_count = 0
@@ -88,8 +86,12 @@ def convert_aud_to_mp3(input_dir: str, output_dir: str):
     conversion_tasks = []
     for aud_file in aud_files:
         aud_path = str(aud_file)
-        mp3_filename = aud_file.name.replace('.aud', '.mp3')
-        mp3_path = str(Path(output_dir) / mp3_filename)
+        # Get the relative path from input_dir
+        rel_path = os.path.relpath(aud_path, input_dir)
+        # Replace .aud extension with .mp3
+        mp3_rel_path = os.path.splitext(rel_path)[0] + '.mp3'
+        # Create full output path maintaining directory structure
+        mp3_path = os.path.join(output_dir, mp3_rel_path)
         conversion_tasks.append((aud_path, mp3_path))
 
     # Use ProcessPoolExecutor for parallel processing
