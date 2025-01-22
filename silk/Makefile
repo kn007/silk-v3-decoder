@@ -46,8 +46,12 @@ ifeq (yes,$(USE_NEON))
 	CFLAGS += -mcpu=cortex-a8 -mfloat-abi=softfp -mfpu=neon
 endif
 
-
-CFLAGS	+= -Wall -enable-threads -O3
+ifeq ($(BUILD_OS), MacOS-X)
+    #$(info Detected macOS, skipping -enable-threads in CFLAGS)
+    CFLAGS      += -Wall
+else
+    CFLAGS      += -Wall -enable-threads -O3
+endif
 
 CFLAGS  += $(call cppflags-from-defines,$(CDEFINES))
 CFLAGS  += $(call cppflags-from-defines,$(ADDED_DEFINES))
