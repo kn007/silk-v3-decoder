@@ -266,6 +266,11 @@ int main( int argc, char* argv[] )
             break;
         }
 
+        if( nBytes > MAX_BYTES_PER_FRAME * MAX_INPUT_FRAMES ) {
+            fprintf( stderr, "\rPacket is too large:             %d", nBytes );
+            return -1;
+        }
+
         /* Read payload */
         counter = fread( payloadEnd, sizeof( SKP_uint8 ), nBytes, bitInFile );
         if( ( SKP_int16 )counter < nBytes ) {
@@ -458,14 +463,6 @@ int main( int argc, char* argv[] )
         totBytes = 0;
         for( i = 0; i < MAX_LBRR_DELAY; i++ ) {
             totBytes += nBytesPerPacket[ i + 1 ];
-        }
-
-        /* Check if the received totBytes is valid */
-        if (totBytes < 0 || totBytes > sizeof(payload))
-        {
-            
-            fprintf( stderr, "\rPackets decoded:              %d", totPackets );
-            return -1;
         }
         
         SKP_memmove( payload, &payload[ nBytesPerPacket[ 0 ] ], totBytes * sizeof( SKP_uint8 ) );
