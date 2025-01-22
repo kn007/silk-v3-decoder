@@ -350,6 +350,13 @@ int main( int argc, char* argv[] )
     /* Write payload size */
     if( !tencent ) {
         fwrite( &nBytes, sizeof( SKP_int16 ), 1, bitOutFile );
+    } else {
+        // qqfile should remove 1 bytes
+        fseek(bitOutFile, -1L, SEEK_END);
+        long pos = ftell(bitOutFile);
+        if(pos >= 1) {
+            ftruncate(fileno(bitOutFile), pos);
+        }
     }
 
     /* Free Encoder */
