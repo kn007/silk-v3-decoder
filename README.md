@@ -100,6 +100,30 @@ sh converter.sh input ouput mp3
 
 如果你需要在`Windows`下使用该程序，请下载[silk2mp3.exe](https://dl.kn007.net/directlink/silk2mp3.zip "silk2mp3.zip")应用程序来完成转换，你可<a href='/windows' target="_blank">点击这里</a>来查看更多Windows下如何使用的相关说明。
 
+
+## Docker
+
+Build docker image,
+
+```
+docker build -t soulmachine/silk-v3-decoder .
+```
+
+Convert a file:
+
+```bash
+docker run -it --rm -v /path/to/input/file:/input silk-v3-decoder /input/filename.slk mp3
+```
+
+Notice: the `33921FF3774A773BB193B6FD4AD7C33E.slk` is an audio file you need to convert, the `mp3` is a format you need to output.
+
+Convert all audio files in a folder:
+
+```bash
+docker run -it --rm -v /path/to/input:/input -v /path/to/output:/output silk-v3-decoder /input /output mp3
+```
+
+
 ## 其他说明
 
 如果你需要对音频文件进行silk v3编码，源码也已经提供，并且对微信、QQ进行了兼容，详见参数。
