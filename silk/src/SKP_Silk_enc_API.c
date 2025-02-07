@@ -124,7 +124,8 @@ SKP_int SKP_Silk_SDK_Encode(
     if( ( ( encControl->API_sampleRate        !=  8000 ) &&
           ( encControl->API_sampleRate        != 12000 ) &&
           ( encControl->API_sampleRate        != 16000 ) &&
-          ( encControl->API_sampleRate        != 24000 ) && 
+          ( encControl->API_sampleRate        != 22050 ) &&
+          ( encControl->API_sampleRate        != 24000 ) &&
           ( encControl->API_sampleRate        != 32000 ) &&
           ( encControl->API_sampleRate        != 44100 ) &&
           ( encControl->API_sampleRate        != 48000 ) ) ||
